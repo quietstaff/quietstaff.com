@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030710">
-<title>Healthcare Case Study — QuietStaff</title>
-<meta name="description" content="How QuietStaff cut patient admin overhead at a multi-site private healthcare group using QuietGate, QuietOps, and QuietDraft.">
+<title>Healthcare Scenario (Illustrative) — QuietStaff</title>
+<meta name="description" content="An illustrative example of how QuietStaff's methodology could reduce patient admin overhead for a healthcare practice — not a completed client engagement.">
 <script>(function(){try{var s=localStorage.getItem('quietstaff-theme');document.documentElement.setAttribute('data-theme',s==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})()</script>
 <!-- Self-hosted fonts (was Google Fonts CDN). PECR / UK GDPR clean — no third-party transfers on first byte. -->
 <style>
@@ -113,6 +113,8 @@ footer{border-top:1px solid var(--border-subtle);padding:40px 24px;text-align:ce
 footer a{color:var(--text-muted);text-decoration:none;}
 footer a:hover{color:var(--text-primary);}
 .illustrative-note{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-muted);text-align:center;padding:12px 0 0;letter-spacing:0.04em;}
+.illustrative-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);border-radius:24px;padding:8px 16px;font-size:13px;color:var(--text-secondary);font-family:'JetBrains Mono',monospace;margin-top:16px;}
+.illustrative-badge::before{content:'ℹ';font-family:'Inter',sans-serif;}
 @media(max-width:768px){
   .nav-links{display:none;}
   .score-row{flex-direction:column;align-items:flex-start;gap:8px;}
@@ -180,28 +182,23 @@ footer a:hover{color:var(--text-primary);}
 </nav>
 <main id="main" role="main">
 <div class="hero" style="max-width:800px;margin:0 auto;padding:130px 24px 20px;">
-  <a href="../" class="back-link">&larr; All Engagements</a>
+  <a href="../" class="back-link">&larr; All Scenarios</a>
   <div class="sector-badge">Healthcare &amp; Life Sciences</div>
   <h1>Cutting Patient Admin Overhead at a <span>Multi-Site Private Healthcare Group</span></h1>
-  <div class="client-meta">
-    <span class="meta-chip">Private GP &amp; Physio Group</span>
-    <span class="meta-chip">3 clinics &mdash; 52 staff</span>
-    <span class="meta-chip">London &amp; Home Counties</span>
-    <span class="meta-chip">Challenge: Operational admin, not clinical AI</span>
-  </div>
+  <div class="illustrative-badge">Illustrative engagement based on sector patterns and QuietStaff methodology. No client data shown.</div>
 </div>
 
 <div class="content">
 
   <div class="section">
     <h2>The Situation</h2>
-    <p>A growing private GP and physiotherapy group was drowning in appointment management. Three receptionists across two sites were spending more than half their working day on inbound calls — booking, rescheduling, chasing referral letters, and following up on no-shows.</p>
-    <p>Referral letter drafting was taking 3–4 days. A new site was opening in six months, and they knew they couldn't hire their way out of the problem.</p>
-    <p>They had no AI in place. Their automation score was low. They didn't know where to start.</p>
+    <p>Picture a growing private GP and physiotherapy group struggling with appointment management. Three receptionists across two sites spend more than half their working day on inbound calls &mdash; booking, rescheduling, chasing referral letters, and following up on no-shows.</p>
+    <p>Referral letter drafting takes three to four days. A new site is due to open in six months, and hiring their way out of the problem is not viable at current margins.</p>
+    <p>There is no AI in place, the automation baseline is low, and nobody is sure where to start. This is a composite of patterns we see in the sector, not a client.</p>
   </div>
 
   <div class="score-block">
-    <div class="score-title">QuietStaff AI Score&trade; — Pre-Engagement Assessment</div>
+    <div class="score-title">QuietStaff AI Score&trade; — Illustrative Pre-Engagement Assessment</div>
     <div class="score-row">
       <span class="score-label">Automation Usage</span>
       <div class="score-bars">
@@ -224,7 +221,6 @@ footer a:hover{color:var(--text-primary);}
       <span class="gap-label">AI Opportunity Gap:</span>
       <span class="gap-value">HIGH</span>
     </div>
-    <div class="finding">Assessment finding: 67% of receptionist time was spent on tasks that follow a predictable, rule-bound pattern — ideal candidates for AI automation with zero clinical risk.</div>
   </div>
 
   <div class="section">
@@ -232,42 +228,19 @@ footer a:hover{color:var(--text-primary);}
     <div class="agents-grid">
       <div class="agent-item">
         <div class="agent-name">QuietGate</div>
-        <div class="agent-desc">Deployed as the first point of contact for all inbound appointment enquiries — via phone callback request, email, and web form. Classified patient intent, checked availability, and routed complex cases to staff. Non-clinical triage handled entirely without human involvement.</div>
+        <div class="agent-desc">Would be deployed as the first point of contact for all inbound appointment enquiries — via phone callback request, email, and web form. Would classify patient intent, check availability, and route complex cases to staff. Non-clinical triage would be handled entirely without human involvement.</div>
       </div>
       <div class="agent-item">
         <div class="agent-name">QuietOps</div>
-        <div class="agent-desc">Automated the full appointment confirmation, reminder, and rescheduling workflow. Triggered 48-hour and 2-hour SMS reminders with one-tap rescheduling links, eliminating the manual chase cycle that consumed receptionist time daily.</div>
+        <div class="agent-desc">Would automate the full appointment confirmation, reminder, and rescheduling workflow. Would trigger 48-hour and 2-hour SMS reminders with one-tap rescheduling links, eliminating the manual chase cycle that consumes receptionist time daily.</div>
       </div>
       <div class="agent-item">
         <div class="agent-name">QuietDraft <span style="font-size:11px;color:var(--text-muted);font-weight:400;">(custom skill)</span></div>
-        <div class="agent-desc">Automated referral letter generation — pulling relevant patient notes, applying the GP's preferred formatting template, and producing a draft ready for clinical sign-off in under 4 minutes. Letters still require a clinician to review and approve before sending.</div>
+        <div class="agent-desc">Would automate referral letter generation — pulling relevant patient notes, applying the GP's preferred formatting template, and producing a draft ready for clinical sign-off in under 4 minutes. Letters would still require a clinician to review and approve before sending.</div>
       </div>
     </div>
-    <p style="margin-top:16px;font-size:13px;color:var(--text-muted);">All built to NHS IG standards. GDPR-compliant data handling. Integrated with their existing practice management system. No changes to clinical workflows.</p>
+    <p style="margin-top:16px;font-size:13px;color:var(--text-muted);">All would be built to NHS IG standards, with GDPR-compliant data handling. It would integrate with their existing practice management system, with no changes to clinical workflows.</p>
   </div>
-
-  <div class="section">
-    <h2>Results — 90 Days Post-Launch</h2>
-    <table class="results-table">
-      <thead>
-        <tr><th>Metric</th><th>Before</th><th>After</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Receptionist time on intake calls</td><td class="before">55% of working day</td><td class="after">18% of working day</td></tr>
-        <tr><td>Appointment no-show rate</td><td class="before">23%</td><td class="after">11%</td></tr>
-        <tr><td>Referral letter turnaround</td><td class="before">3&ndash;4 days</td><td class="after">Same day (draft in 4 min)</td></tr>
-        <tr><td>Inbound enquiries without staff involvement</td><td class="before">0%</td><td class="after">61%</td></tr>
-        <tr><td>New site onboarded</td><td class="before">&mdash;</td><td class="after">Live on same system in 3 weeks</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="blockquote">
-    <p>&ldquo;We were sceptical that an AI could handle the nuance of patient communication. What we got was something that handled the routine perfectly — and knew exactly when to hand off to us.&rdquo;</p>
-    <cite>— Operations Manager, private healthcare group, London &amp; Home Counties</cite>
-  </div>
-
-  <div class="illustrative-note">Illustrative engagement based on sector patterns and QuietStaff methodology. No client data shown.</div>
 
   <div class="cta-section">
     <h3>What Would Your Score Look Like?</h3>

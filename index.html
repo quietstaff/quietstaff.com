@@ -2313,6 +2313,8 @@
             font-style: italic;
             margin-bottom: 2rem;
         }
+        .illustrative-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);border-radius:24px;padding:8px 16px;font-size:13px;color:var(--text-secondary);font-family:'JetBrains Mono',monospace;margin:0 auto 1.5rem;}
+        .illustrative-badge::before{content:'ℹ';font-family:'Inter',sans-serif;}
 
         /* ── Early Phase Partner Offer ── */
         .founding-offer {
@@ -3089,12 +3091,15 @@
         </div>
     </section>
 
-    <!-- Case Studies / Client Engagements Section -->
+    <!-- Illustrative Scenarios Section -->
     <section id="case-studies-home">
         <div class="container">
-            <p class="section-eyebrow">Client Engagements</p>
+            <p class="section-eyebrow">Illustrative Scenarios</p>
             <h2 style="text-align: center; margin-bottom: 1rem;">What a QuietStaff Engagement Looks Like</h2>
-            <p style="text-align: center; color: var(--text-secondary); max-width: 680px; margin: 0 auto 2rem;">Three engagements across sectors we serve &mdash; what we build, how we measure impact, and how managed AI replaces internal headcount.</p>
+            <p style="text-align: center; color: var(--text-secondary); max-width: 680px; margin: 0 auto 1.5rem;">Three illustrative scenarios across the sectors we serve &mdash; what we would build, how we would measure impact, and how managed AI reduces the need for internal headcount.</p>
+            <div style="text-align:center;">
+                <div class="illustrative-badge">Illustrative engagements based on sector patterns and QuietStaff methodology. No client data shown.</div>
+            </div>
 
             <div class="case-study-grid">
                 <a href="case-studies/healthcare/" class="case-card fade-in">
@@ -3103,11 +3108,7 @@
                         <span class="case-score">AI Score <strong>7/10</strong></span>
                     </div>
                     <h3>GP Practice: Patient Admin AI</h3>
-                    <p class="case-summary">A 12-GP practice drowning in referral letters and triage calls. We scored their readiness, built QuietCare for patient intake, and QuietOps for referral letter drafting.</p>
-                    <div class="case-metrics">
-                        <div class="case-metric"><strong>4.5 hrs</strong><span>saved / GP / day</span></div>
-                        <div class="case-metric"><strong>72%</strong><span>of referral letters auto-drafted</span></div>
-                    </div>
+                    <p class="case-summary">A 12-GP practice drowning in referral letters and triage calls. We&rsquo;d score their readiness, then build QuietCare for patient intake and QuietOps for referral letter drafting.</p>
                     <span class="case-cta">Read engagement &rarr;</span>
                 </a>
 
@@ -3117,11 +3118,7 @@
                         <span class="case-score">AI Score <strong>6/10</strong></span>
                     </div>
                     <h3>Accountancy Practice: Bookkeeping AI</h3>
-                    <p class="case-summary">A 40-person accountancy firm losing margin on small-client bookkeeping. We built QuietBooks to automate categorisation, reconciliation, and month-end prep.</p>
-                    <div class="case-metrics">
-                        <div class="case-metric"><strong>3x</strong><span>bookkeeping throughput</span></div>
-                        <div class="case-metric"><strong>&pound;180k</strong><span>annual headcount saved</span></div>
-                    </div>
+                    <p class="case-summary">A 40-person accountancy firm losing margin on small-client bookkeeping. We&rsquo;d build QuietBooks to automate categorisation, reconciliation, and month-end prep.</p>
                     <span class="case-cta">Read engagement &rarr;</span>
                 </a>
 
@@ -3131,22 +3128,16 @@
                         <span class="case-score">AI Score <strong>5/10</strong></span>
                     </div>
                     <h3>Courier Network: Dispatch AI</h3>
-                    <p class="case-summary">A regional courier with manual dispatch and an overworked customer service team. QuietOps for dispatch decisions, QuietCare for delivery-status queries.</p>
-                    <div class="case-metrics">
-                        <div class="case-metric"><strong>-42%</strong><span>customer service calls</span></div>
-                        <div class="case-metric"><strong>+18%</strong><span>drops per driver / day</span></div>
-                    </div>
+                    <p class="case-summary">A regional courier with manual dispatch and an overworked customer service team. QuietOps would handle dispatch decisions, QuietCare would handle delivery-status queries.</p>
                     <span class="case-cta">Read engagement &rarr;</span>
                 </a>
             </div>
-
-            <p class="case-disclaimer">Illustrative engagements based on sector patterns and QuietStaff methodology. No client data shown.</p>
 
             <!-- Early Phase Partner Offer -->
             <div class="founding-offer">
                 <div class="founding-offer-badge">Early Phase Partners &middot; Limited Capacity</div>
                 <h3>Early-Phase Partner Pricing</h3>
-                <p>We&rsquo;re onboarding a small number of early-phase partners &mdash; UK SMBs working with us while we&rsquo;re still shaping the playbook. We already have a few engagements in flight; you&rsquo;d be joining that cohort. In exchange for a reference engagement, you get a significant discount on assessment and build.</p>
+                <p>We&rsquo;re onboarding a small number of early-phase partners while we shape the playbook. In exchange for a reference engagement, you get a significant discount on assessment and build.</p>
                 <div class="founding-offer-bullets">
                     <div class="fo-item">&#x2713; Full Automation + AI Usage Score</div>
                     <div class="fo-item">&#x2713; 3 highest-impact AI opportunities identified</div>

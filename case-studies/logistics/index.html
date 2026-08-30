@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030710">
-<title>Logistics Case Study — QuietStaff</title>
-<meta name="description" content="How QuietStaff helped a regional logistics firm handle 74% of customer enquiries autonomously and cut dispatch scheduling from 90 minutes to 12.">
+<title>Logistics Scenario (Illustrative) — QuietStaff</title>
+<meta name="description" content="An illustrative example of how QuietStaff's methodology could automate customer enquiries and dispatch scheduling for a logistics operator — not a completed client engagement.">
 <script>(function(){try{var s=localStorage.getItem('quietstaff-theme');document.documentElement.setAttribute('data-theme',s==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})()</script>
 <!-- Self-hosted fonts (was Google Fonts CDN). PECR / UK GDPR clean — no third-party transfers on first byte. -->
 <style>
@@ -105,6 +105,8 @@ footer{border-top:1px solid var(--border-subtle);padding:40px 24px;text-align:ce
 footer a{color:var(--text-muted);text-decoration:none;}
 footer a:hover{color:var(--text-primary);}
 .illustrative-note{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-muted);text-align:center;padding:12px 0 0;letter-spacing:0.04em;}
+.illustrative-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);border-radius:24px;padding:8px 16px;font-size:13px;color:var(--text-secondary);font-family:'JetBrains Mono',monospace;margin-top:16px;}
+.illustrative-badge::before{content:'ℹ';font-family:'Inter',sans-serif;}
 @media(max-width:768px){.nav-links{display:none;}.score-row{flex-direction:column;align-items:flex-start;gap:8px;}.cta-section{padding:32px 20px;}.nav-cta{padding:8px 14px;font-size:12px;}}
 @media(max-width:480px){.nav-cta{display:none;}.nav-logo svg{height:32px;}nav{padding-left:14px;padding-right:14px;}.results-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:13px;}.results-table th,.results-table td{padding:8px 10px;}}
 
@@ -161,27 +163,22 @@ footer a:hover{color:var(--text-primary);}
 </nav>
 <main id="main" role="main">
 <div class="hero" style="max-width:800px;margin:0 auto;padding:130px 24px 20px;">
-  <a href="../" class="back-link">&larr; All Engagements</a>
+  <a href="../" class="back-link">&larr; All Scenarios</a>
   <div class="sector-badge">Logistics &amp; Operations</div>
   <h1>Scaling Customer Operations <span>Without Adding Headcount</span></h1>
-  <div class="client-meta">
-    <span class="meta-chip">Regional B2B Logistics &amp; Courier</span>
-    <span class="meta-chip">85 staff</span>
-    <span class="meta-chip">Manchester &amp; Leeds</span>
-    <span class="meta-chip">Challenge: Enquiry volume outgrowing support team</span>
-  </div>
+  <div class="illustrative-badge">Illustrative engagement based on sector patterns and QuietStaff methodology. No client data shown.</div>
 </div>
 
 <div class="content">
 
   <div class="section">
     <h2>The Situation</h2>
-    <p>A fast-growing regional logistics firm was handling 200+ customer enquiries per day across email and phone — shipment status checks, delivery window changes, damage claims, and account queries. Two customer service staff were overwhelmed. Response times had slipped to 6–8 hours.</p>
-    <p>The MD wanted to expand the team but couldn't justify the headcount cost at current margins. Meanwhile, the operations team was spending 90 minutes every morning manually building the dispatch schedule — pulling from three separate spreadsheets and a fragmented order management system.</p>
+    <p>Picture a fast-growing regional logistics firm handling 200+ customer enquiries a day across email and phone &mdash; shipment status checks, delivery window changes, damage claims, and account queries. Two customer service staff are overwhelmed, and response times have slipped to six or eight hours.</p>
+    <p>The MD wants to expand the team but cannot justify the headcount cost at current margins. Meanwhile the operations team spends 90 minutes every morning manually building the dispatch schedule, pulling from three separate spreadsheets and a fragmented order management system. This is a composite of patterns we see in the sector, not a client.</p>
   </div>
 
   <div class="score-block">
-    <div class="score-title">QuietStaff AI Score&trade; — Pre-Engagement Assessment</div>
+    <div class="score-title">QuietStaff AI Score&trade; — Illustrative Pre-Engagement Assessment</div>
     <div class="score-row">
       <span class="score-label">Automation Usage</span>
       <div class="score-bars">
@@ -207,7 +204,6 @@ footer a:hover{color:var(--text-primary);}
       <span class="gap-label">AI Opportunity Gap:</span>
       <span class="gap-value">MEDIUM&ndash;HIGH</span>
     </div>
-    <div class="finding">Assessment finding: The company had decent operational tooling but a significant gap between what their systems knew and what their customers and staff could access. High automation potential in the customer comms layer with low implementation risk.</div>
   </div>
 
   <div class="section">
@@ -215,38 +211,15 @@ footer a:hover{color:var(--text-primary);}
     <div class="agents-grid">
       <div class="agent-item">
         <div class="agent-name">QuietCare</div>
-        <div class="agent-desc">Deployed across email and web chat — handling shipment status enquiries with live tracking integration, delivery window change requests, and standard account queries autonomously. Escalation rules configured for damage claims and complaints, which are routed immediately to the human team with full context attached.</div>
+        <div class="agent-desc">Would be deployed across email and web chat — handling shipment status enquiries with live tracking integration, delivery window change requests, and standard account queries autonomously. Escalation rules would be configured for damage claims and complaints, which would route immediately to the human team with full context attached.</div>
       </div>
       <div class="agent-item">
         <div class="agent-name">QuietOps</div>
-        <div class="agent-desc">Deployed for daily dispatch scheduling — ingesting data from all three source systems, generating an optimised schedule based on delivery priorities and route constraints, and surfacing exceptions for the operations lead to approve. The 90-minute morning task became a 12-minute review. No changes to driver-facing tools.</div>
+        <div class="agent-desc">Would be deployed for daily dispatch scheduling — ingesting data from all three source systems, generating an optimised schedule based on delivery priorities and route constraints, and surfacing exceptions for the operations lead to approve. The 90-minute morning task would become a 12-minute review. No changes to driver-facing tools.</div>
       </div>
     </div>
-    <p style="margin-top:16px;font-size:13px;color:var(--text-muted);">Integrated with their order management system and tracking API. Driver-facing tooling unchanged. The entire layer of AI operation is invisible to end customers — they simply get faster, more consistent responses.</p>
+    <p style="margin-top:16px;font-size:13px;color:var(--text-muted);">Would integrate with their order management system and tracking API. Driver-facing tooling would be unchanged — the entire layer of AI operation would be invisible to end customers, who would simply get faster, more consistent responses.</p>
   </div>
-
-  <div class="section">
-    <h2>Results — 90 Days Post-Launch</h2>
-    <table class="results-table">
-      <thead>
-        <tr><th>Metric</th><th>Before</th><th>After</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Customer enquiries resolved without human</td><td class="before">~5% (basic FAQ)</td><td class="after">74%</td></tr>
-        <tr><td>Average customer response time</td><td class="before">6&ndash;8 hours</td><td class="after">Under 8 minutes</td></tr>
-        <tr><td>Daily dispatch scheduling time</td><td class="before">90 minutes</td><td class="after">12 minutes</td></tr>
-        <tr><td>Customer satisfaction score (internal)</td><td class="before">6.8 / 10</td><td class="after">8.4 / 10</td></tr>
-        <tr><td>Headcount added to handle growth</td><td class="before">&mdash;</td><td class="after">0</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="blockquote">
-    <p>&ldquo;We were expecting to hire two people this quarter. We didn&rsquo;t. And our response times are better than they&rsquo;ve ever been.&rdquo;</p>
-    <cite>— Managing Director, regional logistics firm, Manchester &amp; Leeds</cite>
-  </div>
-
-  <div class="illustrative-note">Illustrative engagement based on sector patterns and QuietStaff methodology. No client data shown.</div>
 
   <div class="cta-section">
     <h3>What Would Your Score Look Like?</h3>

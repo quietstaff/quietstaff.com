@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#030710">
-<title>Finance Case Study — QuietStaff</title>
-<meta name="description" content="How QuietStaff cleared a 3-week invoice backlog and streamlined client onboarding at a Birmingham accountancy practice.">
+<title>Finance Scenario (Illustrative) — QuietStaff</title>
+<meta name="description" content="An illustrative example of how QuietStaff's methodology could clear an invoice backlog and streamline client onboarding for an accountancy practice — not a completed client engagement.">
 <script>(function(){try{var s=localStorage.getItem('quietstaff-theme');document.documentElement.setAttribute('data-theme',s==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})()</script>
 <!-- Self-hosted fonts (was Google Fonts CDN). PECR / UK GDPR clean — no third-party transfers on first byte. -->
 <style>
@@ -105,6 +105,8 @@ footer{border-top:1px solid var(--border-subtle);padding:40px 24px;text-align:ce
 footer a{color:var(--text-muted);text-decoration:none;}
 footer a:hover{color:var(--text-primary);}
 .illustrative-note{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-muted);text-align:center;padding:12px 0 0;letter-spacing:0.04em;}
+.illustrative-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);border-radius:24px;padding:8px 16px;font-size:13px;color:var(--text-secondary);font-family:'JetBrains Mono',monospace;margin-top:16px;}
+.illustrative-badge::before{content:'ℹ';font-family:'Inter',sans-serif;}
 @media(max-width:768px){.nav-links{display:none;}.score-row{flex-direction:column;align-items:flex-start;gap:8px;}.cta-section{padding:32px 20px;}.nav-cta{padding:8px 14px;font-size:12px;}}
 @media(max-width:480px){.nav-cta{display:none;}.nav-logo svg{height:32px;}nav{padding-left:14px;padding-right:14px;}.results-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:13px;}.results-table th,.results-table td{padding:8px 10px;}}
 
@@ -161,28 +163,23 @@ footer a:hover{color:var(--text-primary);}
 </nav>
 <main id="main" role="main">
 <div class="hero" style="max-width:800px;margin:0 auto;padding:130px 24px 20px;">
-  <a href="../" class="back-link">&larr; All Engagements</a>
+  <a href="../" class="back-link">&larr; All Scenarios</a>
   <div class="sector-badge">Finance &amp; Accountancy</div>
   <h1>Clearing the Invoice Backlog at a <span>Mid-Size Accountancy Practice</span></h1>
-  <div class="client-meta">
-    <span class="meta-chip">Independent Accountancy Practice</span>
-    <span class="meta-chip">14 staff &mdash; 300+ SMB clients</span>
-    <span class="meta-chip">Birmingham</span>
-    <span class="meta-chip">Challenge: Invoice processing &amp; onboarding bottleneck</span>
-  </div>
+  <div class="illustrative-badge">Illustrative engagement based on sector patterns and QuietStaff methodology. No client data shown.</div>
 </div>
 
 <div class="content">
 
   <div class="section">
     <h2>The Situation</h2>
-    <p>A 14-person practice serving 300+ SMB clients was sitting on a 3-week invoice processing backlog. Two junior accountants were spending Monday mornings doing nothing but manually matching receipts to expense categories and chasing clients for missing documentation.</p>
-    <p>New client onboarding — KYC forms, engagement letters, practice management setup — was taking 5 business days and involved an average of 11 back-and-forth emails per new client.</p>
-    <p>Two senior partners estimated they were losing 20 billable hours a week to admin that &ldquo;shouldn&rsquo;t require a human.&rdquo;</p>
+    <p>Picture a 14-person accountancy practice serving 300+ SMB clients, sitting on a three-week invoice processing backlog. Two junior accountants spend Monday mornings manually matching receipts to expense categories and chasing clients for missing documentation.</p>
+    <p>New client onboarding &mdash; KYC forms, engagement letters, practice management setup &mdash; takes five business days and averages eleven back-and-forth emails per client.</p>
+    <p>Admin that &ldquo;shouldn&rsquo;t require a human&rdquo; is absorbing something like 20 billable hours a week. This is a composite of patterns we see in the sector, not a client.</p>
   </div>
 
   <div class="score-block">
-    <div class="score-title">QuietStaff AI Score&trade; — Pre-Engagement Assessment</div>
+    <div class="score-title">QuietStaff AI Score&trade; — Illustrative Pre-Engagement Assessment</div>
     <div class="score-row">
       <span class="score-label">Automation Usage</span>
       <div class="score-bars">
@@ -207,7 +204,6 @@ footer a:hover{color:var(--text-primary);}
       <span class="gap-label">AI Opportunity Gap:</span>
       <span class="gap-value">HIGH</span>
     </div>
-    <div class="finding">Assessment finding: The practice had reasonable tooling (cloud accounting, CRM) but almost no automation connecting them. The integration layer was entirely manual — a person copying data between systems.</div>
   </div>
 
   <div class="section">
@@ -215,38 +211,15 @@ footer a:hover{color:var(--text-primary);}
     <div class="agents-grid">
       <div class="agent-item">
         <div class="agent-name">QuietBooks</div>
-        <div class="agent-desc">Deployed for end-to-end invoice ingestion — OCR extraction from PDF and email attachments, automatic expense categorisation against client-specific rules, and exception flagging for human review. Junior accountants now only touch the edge cases QuietBooks can't resolve with confidence.</div>
+        <div class="agent-desc">Would be deployed for end-to-end invoice ingestion — OCR extraction from PDF and email attachments, automatic expense categorisation against client-specific rules, and exception flagging for human review. Junior accountants would only need to touch the edge cases QuietBooks can't resolve with confidence.</div>
       </div>
       <div class="agent-item">
         <div class="agent-name">QuietGate</div>
-        <div class="agent-desc">Deployed as the client onboarding intake agent — collecting KYC documentation via a structured conversation, validating completeness, triggering engagement letter generation via DocuSign, and pushing confirmed data directly into their practice management system. Average email thread reduced from 11 exchanges to 3.</div>
+        <div class="agent-desc">Would be deployed as the client onboarding intake agent — collecting KYC documentation via a structured conversation, validating completeness, triggering engagement letter generation via DocuSign, and pushing confirmed data directly into their practice management system. Average email thread would reduce from 11 exchanges to 3.</div>
       </div>
     </div>
-    <p style="margin-top:16px;font-size:13px;color:var(--text-muted);">Integrated with Xero, their existing CRM, and DocuSign. Zero change to client-facing tools — the AI worked entirely behind the scenes.</p>
+    <p style="margin-top:16px;font-size:13px;color:var(--text-muted);">Would integrate with Xero, their existing CRM, and DocuSign — zero change to client-facing tools, with the AI working entirely behind the scenes.</p>
   </div>
-
-  <div class="section">
-    <h2>Results — 60 Days Post-Launch</h2>
-    <table class="results-table">
-      <thead>
-        <tr><th>Metric</th><th>Before</th><th>After</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>Invoice processing backlog</td><td class="before">3 weeks</td><td class="after">48 hours</td></tr>
-        <tr><td>Manual expense categorisation time</td><td class="before">8 hrs / week</td><td class="after">45 min / week (exceptions only)</td></tr>
-        <tr><td>New client onboarding time</td><td class="before">5 business days</td><td class="after">1 business day</td></tr>
-        <tr><td>Avg. onboarding emails per new client</td><td class="before">11</td><td class="after">3</td></tr>
-        <tr><td>Senior partner admin hours freed</td><td class="before">&mdash;</td><td class="after">17 hrs / week</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="blockquote">
-    <p>&ldquo;The ROI conversation with our partners was straightforward once we saw the numbers. This pays for itself in month one on the senior partner time alone.&rdquo;</p>
-    <cite>— Managing Partner, Birmingham accountancy practice</cite>
-  </div>
-
-  <div class="illustrative-note">Illustrative engagement based on sector patterns and QuietStaff methodology. No client data shown.</div>
 
   <div class="cta-section">
     <h3>What Would Your Score Look Like?</h3>
