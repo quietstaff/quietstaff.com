@@ -128,6 +128,27 @@ footer a:hover{color:var(--text-primary);}
     .skip-link{position:absolute;left:-9999px;top:0;z-index:999;background:var(--accent-primary,#6366f1);color:#fff;padding:0.75rem 1rem;text-decoration:none;border-radius:0 0 6px 0;font-weight:600;}
     .skip-link:focus{left:0;outline:2px solid #fff;}
 </style>
+
+<style>
+/* --- Work Delivered section (added 2026-09-01) — uses existing tokens only --- */
+.section-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px;}
+.section-head{max-width:760px;margin:0 auto 40px;text-align:center;}
+.section-head h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;letter-spacing:-.02em;margin:0 0 14px;color:var(--text-primary);}
+.section-head p{color:var(--text-secondary);font-size:16px;line-height:1.65;margin:0;}
+.work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-bottom:72px;}
+.work-card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:12px;transition:border-color .2s ease,transform .2s ease;}
+.work-card:hover{border-color:rgba(99,102,241,.32);transform:translateY(-2px);}
+.work-title{font-size:17px;font-weight:700;line-height:1.35;color:var(--text-primary);letter-spacing:-.01em;}
+.work-desc{font-size:14.5px;line-height:1.65;color:var(--text-secondary);margin:0;}
+.split-rule{max-width:1100px;margin:0 auto 64px;border:0;border-top:1px solid var(--border-subtle);}
+@media(max-width:768px){.work-grid{grid-template-columns:1fr;gap:16px;}.section-head{margin-bottom:32px;}}
+@media(max-width:480px){.work-card{padding:20px;}}
+.prev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px 28px;margin-bottom:72px;}
+.prev-item{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--border-subtle);}
+.prev-n{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent-secondary);padding-top:3px;flex:0 0 auto;letter-spacing:.06em;}
+.prev-item p{margin:0;font-size:14.5px;line-height:1.62;color:var(--text-secondary);}
+@media(max-width:768px){.prev-grid{grid-template-columns:1fr;margin-bottom:48px;}}
+</style>
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to content</a>
@@ -178,13 +199,115 @@ footer a:hover{color:var(--text-primary);}
 </nav>
 <main id="main" role="main">
 <section class="hero">
-  <div class="hero-eyebrow">Illustrative Scenarios</div>
-  <h1>How the Method<br><span>Would Apply.</span></h1>
-  <p class="hero-sub">Three worked scenarios showing how QuietStaff would approach a Managed AI Workforce engagement for a UK SMB &mdash; from discovery through to live.</p>
-  <div class="illustrative-badge">Illustrative engagements based on sector patterns and QuietStaff methodology. No client data shown.</div>
+  <div class="hero-eyebrow">Selected Work</div>
+  <h1>Things I&rsquo;ve Built.<br><span>And How the Method Applies.</span></h1>
+  <p class="hero-sub">A selection of systems built over the past period, followed by three worked scenarios showing how a QuietStaff engagement runs for a UK SMB &mdash; from discovery through to live.</p>
 </section>
 
 <div class="container">
+
+  <div class="section-head">
+    <div class="section-label">Selected Work</div>
+    <h2>Systems built, recently</h2>
+    <p>Governance tooling, data-boundary enforcement, observability, monitoring and pipeline work. Described at the engineering level &mdash; what was built, how it was built, and where the hard parts were. Commercial detail is held back by agreement.</p>
+  </div>
+
+  <div class="work-grid">
+
+    <div class="work-card">
+      <div class="work-title">QuietClean &mdash; a 14-phase governance model for AI-authored software</div>
+      <p class="work-desc">A governed software lifecycle for code written with AI. Every stage &mdash; scoping through review to release &mdash; ran through a named phase with its own entry and exit criteria, so a change could always be located at a known point in the lifecycle rather than treated as an ungoverned edit. Its own marketing and documentation copy was linted for overclaiming against a maintained denylist, failing the build on a hit; anything the lint could not adjudicate routed to a named human reviewer before it could ship. A DPIA was carried out and kept current for as long as it processed personal data.</p>
+    </div>
+
+    <div class="work-card">
+      <div class="work-title">A commerce build with a compile-time data boundary</div>
+      <p class="work-desc">Six parallel research workstreams &mdash; demand, competition, operations, costing, financials and risk &mdash; run to completion before any product code was written. The build itself carries a margin-protection pricing engine whose cost and margin fields must never reach the browser, and that boundary is enforced by a compile-time assertion rather than a runtime filter or a code-review checklist: pass a cost-bearing data shape toward client-facing code and the build fails before it ships. On top of that boundary, a live 3D product configurator and server-generated quote and RFQ documents.</p>
+    </div>
+
+    <div class="work-card">
+      <div class="work-title">Mission Control &mdash; a live agent-operations view</div>
+      <p class="work-desc">A Node dashboard that tails a coding agent&rsquo;s own session transcripts through a filesystem watch, including per-subagent transcript files, and serves a live view: current status, the tool in use right now, token spend, elapsed time, session cost and context-window usage. Zero npm dependencies &mdash; the whole thing runs with <code>node server.js</code>. Built in a single day.</p>
+    </div>
+
+    <div class="work-card">
+      <div class="work-title">Atlas &mdash; a cross-project observability layer, and the case for not selling it</div>
+      <p class="work-desc">A cross-project status registry and collector tracking every project run through the toolchain, feeding a dashboard on a scheduled local collection cycle. It answers the question every multi-project operator eventually asks: what is actually running, and where. The registry was built first, then sized as a product &mdash; and the architecture, competitive and market-viability research that followed reached a plain verdict that the addressable market was too small to justify productising it. It stayed an internal tool.</p>
+    </div>
+
+    <div class="work-card">
+      <div class="work-title">A Golden Signals monitor, deployed as a system service</div>
+      <p class="work-desc">A bash-first monitoring service on the classical Golden Signals method: external heartbeat, disk usage, memory usage and container count, each on its own schedule. It ships with its own installer script and a macOS LaunchAgent definition, so it runs continuously as a background service instead of relying on someone remembering to check it. Small, tested, and boring on purpose &mdash; which is the point of the method.</p>
+    </div>
+
+    <div class="work-card">
+      <div class="work-title">A naming pipeline with authoritative domain clearance</div>
+      <p class="work-desc">Built to solve a one-off naming problem for a real venture, then generalised. A brief goes in; genre-diverse candidates come out; each is checked against authoritative domain-registry clearance data rather than a guess or a cached list; results fan out across a registry proxy; and a fixed scoring rubric ranks the shortlist that emerges. The naming problem belonged to one venture. The pipeline that solved it did not.</p>
+    </div>
+
+    <div class="work-card">
+      <div class="work-title">A billing and documents portal for a coworking operator</div>
+      <p class="work-desc">Live since August 2026. A password-gated web portal front-office staff use to raise tax-compliant invoices, quotations and payment receipts against the live member ledger. Two pricing modes: rate-driven, where tax is added on top, and agreed-total, where the taxable amount has to be worked back out of a fixed inclusive figure &mdash; which is not cleanly invertible under statutory rounding, so the generator searches for the taxable base that reproduces the target total exactly. Multi-line documents allocate the subtotal proportionally with the last line absorbing the rounding remainder, so line amounts always sum to the total. Quotations prorate a partial first month against a date range rather than rounding to whole months.</p>
+    </div>
+
+    <div class="work-card">
+      <div class="work-title">Releasing it without breaking a live ledger</div>
+      <p class="work-desc">The portal writes into a spreadsheet three people already had open, which has no transactional isolation of its own. Every write takes a document lock with a timeout, so two staff cannot race the same receipt number. The password exists only as a hash in a script property &mdash; not in source, not in docs, not in version control &mdash; and is compared with a hand-rolled constant-time check, because the runtime has no native one. It went live against a written checklist: backup taken and read back before promotion, every document type test-generated and visually inspected as a finished page, and a confirmed zero dummy records in production.</p>
+    </div>
+
+    <div class="work-card">
+      <div class="work-title">An operations assistant inside the team&rsquo;s chat</div>
+      <p class="work-desc">Set up and running for the same operation, currently supported under supervision. It reads the operational group and turns a day of chat into a twice-daily brief &mdash; what was decided, who owns it, what is still open &mdash; with every item linked back to the message it came from. It is structurally prevented from inventing one. Model output is rejected unless every field matches an allow-listed key set, every cited message is one actually supplied to it, and any assignment of an owner is traceable to text that really named that person. It returns <code>unknown</code> rather than guess. Reviewers rate each decision as correct, incomplete, wrong or unsafe, and approved corrections create a new immutable version of that knowledge rather than overwriting the old one &mdash; so it improves through a reviewed loop with an audit trail, not by drifting.</p>
+    </div>
+
+    <div class="work-card">
+      <div class="work-title">Building it so it can decide but not act</div>
+      <p class="work-desc">The assistant talks to a real business group, so a wrong or duplicate message is a real-world error rather than a log line. Its decisions are written to a review queue; actual delivery runs through a separate gated path that checks a mute switch first, so nothing the model produces can send itself. Every hop is treated as at-least-once, with unique idempotency keys on both model invocations and outbound messages &mdash; a redelivered job replays the stored result instead of calling the model and billing twice. Ambiguous outcomes become a state a human reconciles, never an automatic resend. Failures dead-letter into an audited path rather than disappearing. And retention is enforced by a scheduled purge that nulls content and strips actor identifiers on a clock, leaving a tombstone recording that something was removed without retaining what.</p>
+    </div>
+
+    <div class="work-card">
+      <div class="work-title">The same system, twice, on two very different runtimes</div>
+      <p class="work-desc">It runs on an edge platform &mdash; serverless workers, a strongly-consistent coordination object used as the deduplication gate, a managed queue with a dead-letter path, SQLite at the edge. It also runs as a self-hosted build on a plain VPS: the same domain model on PostgreSQL behind a reverse proxy with automatic TLS, in containers that are read-only with all capabilities dropped. Without a managed queue, that build claims work with row-level locking that skips locked rows, and serialises the daily model-spend check behind an advisory lock so two workers cannot both pass a stale count and overshoot the cap. Portability was the point: the same product, not tied to one vendor.</p>
+    </div>
+
+    <div class="work-card">
+      <div class="work-title">Finding the mail failure that only hit some recipients</div>
+      <p class="work-desc">Business mail from a live domain was landing in spam for some recipients and arriving cleanly for others &mdash; the pattern that makes a mail problem hard to pin down. The cause was an SPF record making twelve DNS lookups against RFC 7208&rsquo;s hard limit of ten, producing a permanent error that strict validators read as no authentication at all, while lenient ones short-circuited on the first match and let the mail through. Fixing it meant first establishing that DNS was not actually being served where the registrar&rsquo;s own control panel implied it was. The rebuilt record sits at seven lookups of ten, with headroom left deliberately.</p>
+    </div>
+
+  </div>
+
+  <hr class="split-rule">
+
+  <div class="section-head">
+    <div class="section-label">Previously</div>
+    <h2>Data and cloud-cost infrastructure, in-house</h2>
+    <p>Twelve areas of work built and operated for a US mortgage-analytics firm. Described at capability level &mdash; no client names, no internal system names, no figures.</p>
+  </div>
+
+  <div class="prev-grid">
+    <div class="prev-item"><span class="prev-n">01</span><p>Built a monthly cloud cost-reporting pipeline that pulled multi-account billing data, reconciled it against a validated financial control, and rendered tiered executive reporting.</p></div>
+    <div class="prev-item"><span class="prev-n">02</span><p>Built and maintained a multi-year cloud cost forecasting model with driver-based projections, automated reconciliation checks and an approval-gated write workflow.</p></div>
+    <div class="prev-item"><span class="prev-n">03</span><p>Built a reserved-capacity purchase advisory workflow modelling commitment scenarios against live usage, with payback-period and net-present-value analysis. Advisory only &mdash; it never executed a purchase.</p></div>
+    <div class="prev-item"><span class="prev-n">04</span><p>Built tooling to baseline and compare cloud spend across a multi-account landing zone during an environment migration.</p></div>
+    <div class="prev-item"><span class="prev-n">05</span><p>Built a cost-anomaly investigation workflow that traced unusual network-transfer spend to its underlying cause and produced prioritised remediation options.</p></div>
+    <div class="prev-item"><span class="prev-n">06</span><p>Designed cost-control alerting and guardrails &mdash; budget alarms, anomaly subscriptions and tagging enforcement &mdash; across a cloud estate.</p></div>
+    <div class="prev-item"><span class="prev-n">07</span><p>Built the CI/CD deployment pipeline for a managed workflow-orchestration platform, including handling for image builds, registry failures and partial deploys.</p></div>
+    <div class="prev-item"><span class="prev-n">08</span><p>Built an orchestration layer that triggered and monitored workflow runs by API using short-lived scoped credentials, polled through to a terminal state.</p></div>
+    <div class="prev-item"><span class="prev-n">09</span><p>Built a data-pipeline suite ingesting cloud billing exports into a warehouse and classifying spend against a client-attribution model, with health monitoring that classified failures against known root causes.</p></div>
+    <div class="prev-item"><span class="prev-n">10</span><p>Built a classification engine mapping unattributed infrastructure to individual clients by naming and tagging heuristics, with a human-review step before any change was applied.</p></div>
+    <div class="prev-item"><span class="prev-n">11</span><p>Built a warehouse administration tool that classified every privileged change by risk tier, previewed its blast radius and rollback, and enforced an approval gate before execution.</p></div>
+    <div class="prev-item"><span class="prev-n">12</span><p>Built a cross-system investigation tool reconciling a ticketing system, a knowledge base, a support desk and a data warehouse into a single brief.</p></div>
+  </div>
+
+  <hr class="split-rule">
+
+  <div class="section-head">
+    <div class="section-label">Illustrative</div>
+    <h2>How the method would apply</h2>
+    <p>Below are three worked scenarios, not engagements. They show how a QuietStaff engagement would run for a UK SMB &mdash; discovery through to live &mdash; in three sectors.</p>
+    <div class="illustrative-badge" style="margin-top:18px;">Illustrative engagements based on sector patterns and QuietStaff methodology. No client data shown.</div>
+  </div>
+
   <div class="cases-grid">
 
     <!-- Healthcare -->
