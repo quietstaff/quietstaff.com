@@ -6,7 +6,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About the Founder &mdash; QuietStaff</title>
-    {% include head-meta.html title="Meet the Founder" desc="QuietStaff is one senior engineering architect with two decades in enterprise technology and active doctoral research into AI adoption in UK SMBs — not a delivery team you never meet." path="founder/" type="profile" %}
+
+    <!-- Theme: read preference before paint (prevents flash of the wrong theme).
+         Also marks the document as JS-capable so entrance motion is only
+         withheld when there is a script to release it. -->
+    <script>
+        (function() {
+            try {
+                var saved = localStorage.getItem('quietstaff-theme');
+                var theme = saved === 'light' ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+            document.documentElement.className += ' js';
+        })();
+    </script>
+
+    {% include head-meta.html title="Meet the Founder" desc="QuietStaff is one senior engineering architect with two decades in enterprise technology and active doctoral research into AI adoption in UK SMBs — not a delivery team you never meet." path="founder/" type="profile" image="https://quietstaff.co.uk/assets/images/founder-og.jpg" %}
     <link rel="stylesheet" href="/assets/css/fonts.css">
     <script type="application/ld+json">
     {
@@ -15,37 +32,34 @@
         "name": "Raj",
         "jobTitle": "Founder · CEO · Chief AI Architect",
         "url": "https://quietstaff.co.uk/founder/",
+        "image": "https://quietstaff.co.uk/assets/images/founder-800.jpg",
         "sameAs": ["https://www.linkedin.com/in/mohan-technical-leadership/"]
     }
     </script>
 <style>
+/* ─────────────────────────────────────────────────────────────────
+   Founder page. Colour tokens (--bg-*, --text-*, --accent-*) come from
+   /assets/css/shared.css, linked after this block. Only page-local
+   surfaces are defined here.
+   ───────────────────────────────────────────────────────────────── */
 :root {
-            --bg-primary: #030710;
-            --bg-secondary: #0a0f1f;
-            --card-bg: rgba(255,255,255,0.02);
-            --card-border: rgba(99,102,241,0.18);
-            --text-primary: #f5f7fa;
-            --text-secondary: #a3a8b8;
-            --text-tertiary: #6b7280;
-            --accent-primary: #6366f1;
-            --accent-cyan: #22d3ee;
-            --accent-violet: #7c3aed;
-            --nav-bg: rgba(3,7,16,0.85);
-            --nav-border: rgba(99,102,241,0.15);
+            --hairline: rgba(148, 163, 184, 0.16);
+            --surface: rgba(255, 255, 255, 0.025);
+            --quote-surface: rgba(99, 102, 241, 0.07);
+            --glow: rgba(99, 102, 241, 0.22);
+            --card-border: rgba(99, 102, 241, 0.18);
+            --nav-bg: rgba(3, 7, 16, 0.85);
+            --nav-border: rgba(99, 102, 241, 0.15);
+            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
         }
 [data-theme="light"] {
-            --bg-primary: #ffffff;
-            --bg-secondary: #f5f7fa;
-            --card-bg: rgba(255,255,255,0.8);
-            --card-border: rgba(99,102,241,0.2);
-            --text-primary: #0a0f1f;
-            --text-secondary: #4b5563;
-            --text-tertiary: #6b7280;
-            --accent-primary: #4338ca;
-            --accent-cyan: #0e7490;
-            --accent-violet: #6d28d9;
-            --nav-bg: rgba(255,255,255,0.9);
-            --nav-border: rgba(99,102,241,0.25);
+            --hairline: rgba(15, 23, 42, 0.10);
+            --surface: #f8fafc;
+            --quote-surface: rgba(99, 102, 241, 0.06);
+            --glow: rgba(99, 102, 241, 0.14);
+            --card-border: rgba(99, 102, 241, 0.2);
+            --nav-bg: rgba(255, 255, 255, 0.9);
+            --nav-border: rgba(99, 102, 241, 0.25);
         }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -57,19 +71,25 @@ body {
             overflow-x: hidden;
             min-height: 100vh;
             transition: background 0.3s;
+            -webkit-font-smoothing: antialiased;
         }
+.mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
 .skip-link {
             position: absolute; left: -9999px; top: 0; z-index: 999;
-            background: var(--accent-primary); color: #fff; padding: 0.75rem 1rem;
+            background: var(--accent-btn); color: #fff; padding: 0.75rem 1rem;
             text-decoration: none; border-radius: 0 0 6px 0;
         }
 .skip-link:focus { left: 0; }
 a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent-text); outline-offset: 3px; border-radius: 4px; }
 h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; color: var(--text-primary); }
+
+/* ── Nav ─────────────────────────────────────────────────────────── */
 nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 100;
             background: var(--nav-bg);
             backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--nav-border);
             padding: 0.75rem 2rem;
             display: flex; align-items: center; justify-content: space-between;
@@ -97,202 +117,398 @@ nav {
             transition: border-color 0.2s, color 0.2s;
         }
 .theme-toggle:hover, .nav-home:hover { border-color: var(--accent-text); color: var(--accent-text); }
-main { padding-top: 80px; }
+main { padding-top: 66px; }
+
+/* ── Hero: the portrait emerges from the page ─────────────────────── */
 .hero {
-            max-width: 860px;
+            position: relative;
+            overflow: hidden;
+            padding-top: 3rem;
+        }
+.hero-glow {
+            position: absolute;
+            right: -10%;
+            top: 8%;
+            width: 60%;
+            aspect-ratio: 1;
+            background: radial-gradient(closest-side, var(--glow), transparent 70%);
+            filter: blur(30px);
+            pointer-events: none;
+            z-index: 0;
+        }
+.hero-inner {
+            position: relative;
+            max-width: 1240px;
             margin: 0 auto;
-            padding: 4rem 1.5rem 3rem;
-            text-align: center;
+            padding: 0 2rem;
+            min-height: min(86vh, 840px);
+            display: flex;
+            align-items: flex-end;
+        }
+.portrait {
+            position: absolute;
+            right: -1rem;
+            bottom: 0;
+            width: clamp(380px, 56%, 690px);
+            aspect-ratio: 800 / 993;
+            z-index: 1;
+            will-change: transform;
+            /* The dissolve. Left edge (where the copy sits) and bottom edge
+               fade to nothing; top and right fade a little so no side of the
+               photograph ever reads as a rectangle. The page background shows
+               through, so this works unchanged in both themes. */
+            -webkit-mask-image:
+                linear-gradient(to right, transparent 0%, #000 40%),
+                linear-gradient(to top, transparent 0%, #000 44%),
+                linear-gradient(to bottom, transparent 0%, #000 18%),
+                linear-gradient(to left, transparent 0%, #000 10%);
+            mask-image:
+                linear-gradient(to right, transparent 0%, #000 40%),
+                linear-gradient(to top, transparent 0%, #000 44%),
+                linear-gradient(to bottom, transparent 0%, #000 18%),
+                linear-gradient(to left, transparent 0%, #000 10%);
+            -webkit-mask-composite: source-in;
+            mask-composite: intersect;
+        }
+.portrait picture, .portrait img { display: block; width: 100%; height: 100%; }
+.portrait img { object-fit: cover; object-position: center top; transform-origin: 50% 70%; }
+.hero-copy {
+            position: relative;
+            z-index: 2;
+            max-width: 38rem;
+            padding: 6rem 0 5rem;
+        }
+/* Scrim: a full-height band of page colour under the whole copy box,
+   dissolving 12rem to the right. The copy sits over the faded edge of the
+   portrait but no text ever lands on photograph, and because the band runs
+   the full hero height it adds no horizontal edge to the dissolve. */
+.hero-copy::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: -60vh; bottom: -60vh;
+            left: -3rem; right: -12rem;
+            background: linear-gradient(90deg, var(--bg-primary) 0%, var(--bg-primary) calc(100% - 12rem), transparent 100%);
+            pointer-events: none;
         }
 .eyebrow {
+            font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
             font-size: 0.72rem;
-            font-weight: 700;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            color: var(--accent-text);
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+.hero h1 {
+            font-size: clamp(3.75rem, 9vw, 7.5rem);
+            font-weight: 800;
+            line-height: 0.92;
+            letter-spacing: -0.045em;
+            margin-bottom: 1.25rem;
+        }
+.hero-role {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: 0.01em;
+            margin-bottom: 1.75rem;
+        }
+.hero-role::before {
+            content: '';
+            display: inline-block;
+            width: 2.25rem;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-primary), transparent);
+        }
+.hero-sub {
+            color: var(--text-secondary);
+            font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+            line-height: 1.65;
+            max-width: 32rem;
+            margin-bottom: 1.5rem;
+        }
+.founder-credentials {
+            color: var(--text-primary);
+            font-size: 0.92rem;
+            font-weight: 600;
+            line-height: 1.6;
+            max-width: 32rem;
+            margin-bottom: 1.5rem;
+        }
+.founder-credentials a {
+            color: var(--accent-text);
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+        }
+.founder-credentials a:hover { text-decoration-thickness: 2px; }
+.hero-links a {
+            color: var(--accent-text);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+.hero-links a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* ── Ledger: the four facts, set as a ruled row ───────────────────── */
+.ledger {
+            position: relative;
+            z-index: 2;
+            border-top: 1px solid var(--hairline);
+            border-bottom: 1px solid var(--hairline);
+            background: var(--surface);
+        }
+.ledger-row {
+            max-width: 1240px;
+            margin: 0 auto;
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+.ledger-item {
+            padding: 1.6rem 2rem;
+            border-left: 1px solid var(--hairline);
+        }
+.ledger-item:first-child { border-left: 0; }
+.ledger-value {
+            display: block;
+            font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: clamp(1.5rem, 2.4vw, 2rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            line-height: 1.1;
+            margin-bottom: 0.4rem;
+        }
+.ledger-label {
+            display: block;
+            font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+/* ── Editorial sections: index + heading left, matter right ───────── */
+.section {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            display: grid;
+            grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+            column-gap: 4rem;
+            border-top: 1px solid var(--hairline);
+        }
+.ledger + .section { border-top: 0; }
+.section-head { align-self: start; position: sticky; top: 6rem; }
+.section-index {
+            font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.72rem;
             letter-spacing: 0.18em;
             color: var(--accent-text);
             text-transform: uppercase;
             margin-bottom: 1rem;
         }
-.hero h1 {
-            font-size: clamp(1.85rem, 4vw, 2.75rem);
-            line-height: 1.2;
-            margin-bottom: 1rem;
+.section h2 {
+            font-size: clamp(1.75rem, 3.2vw, 2.6rem);
+            line-height: 1.08;
+            letter-spacing: -0.035em;
+            max-width: 12ch;
         }
-.text-gradient {
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-.hero-sub {
+.section-body p {
             color: var(--text-secondary);
-            font-size: 1.1rem;
-            max-width: 640px;
-            margin: 0 auto 2rem;
-        }
-.founder-credentials {
-            color: var(--text-primary);
-            font-size: 0.95rem;
-            font-weight: 600;
-            letter-spacing: 0.01em;
-            max-width: 680px;
-            margin: 0 auto 1.25rem;
-            opacity: 0.92;
-        }
-@media (max-width: 480px) {
-            .founder-credentials { font-size: 0.85rem; line-height: 1.55; }
-        }
-.founder-mark {
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-violet));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            box-shadow: 0 10px 30px rgba(99,102,241,0.25);
-        }
-.founder-mark svg { width: 44px; height: 44px; }
-.founder-role {
-            display: inline-block;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            padding: 6px 14px;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 999px;
-            backdrop-filter: blur(10px);
-        }
-section.content {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
-section.content h2 {
-            font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+            font-size: 1.05rem;
+            line-height: 1.75;
             margin-bottom: 1.25rem;
         }
-section.content p { color: var(--text-secondary); font-size: 1.02rem; line-height: 1.75; margin-bottom: 1rem; }
-section.content p strong { color: var(--text-primary); }
-.cred-grid {
+.section-body p:last-child { margin-bottom: 0; }
+.section-body p strong { color: var(--text-primary); }
+
+.pull-quote {
+            position: relative;
+            margin: 2.5rem 0 0;
+            padding: 2rem 2rem 2rem 2.5rem;
+            background: var(--quote-surface);
+            border-left: 2px solid var(--accent-primary);
+            border-radius: 0 12px 12px 0;
+            color: var(--text-primary);
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.6;
+            letter-spacing: -0.01em;
+        }
+.pull-quote::before {
+            content: '\201C';
+            position: absolute;
+            left: 0.9rem;
+            top: 0.4rem;
+            font-size: 3.2rem;
+            line-height: 1;
+            font-weight: 800;
+            color: var(--accent-text);
+            opacity: 0.9;
+        }
+
+.cred-list { list-style: none; }
+.cred-item {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin: 2rem 0;
+            grid-template-columns: 11rem minmax(0, 1fr);
+            column-gap: 2rem;
+            padding: 1.6rem 0;
+            border-top: 1px solid var(--hairline);
         }
-.cred-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 14px;
-            padding: 1.5rem 1.25rem;
-            backdrop-filter: blur(10px);
-        }
+.cred-item:first-child { border-top: 0; padding-top: 0.25rem; }
 .cred-label {
+            font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
             font-size: 0.7rem;
-            font-weight: 700;
+            font-weight: 600;
             letter-spacing: 0.12em;
             color: var(--accent-text);
             text-transform: uppercase;
-            margin-bottom: 0.6rem;
+            padding-top: 0.35rem;
         }
-.cred-body { color: var(--text-secondary); font-size: 0.92rem; line-height: 1.55; }
-.stat-row {
+.cred-body { color: var(--text-secondary); font-size: 1rem; line-height: 1.7; }
+
+.ways { list-style: none; display: grid; gap: 0; }
+.way {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            margin: 2rem 0;
+            grid-template-columns: 3.5rem minmax(0, 1fr);
+            column-gap: 1rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--hairline);
         }
-.stat {
-            text-align: center;
-            padding: 1.25rem 0.75rem;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-        }
-.stat-value {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.25rem;
-        }
-.stat-label {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
+.way:first-child { border-top: 0; padding-top: 0.25rem; }
+.way-n {
+            font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.8rem;
             font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
+            color: var(--accent-text);
+            padding-top: 0.3rem;
         }
-blockquote {
-            border-left: 3px solid var(--accent-primary);
-            padding: 1rem 1.5rem;
-            margin: 2rem 0;
-            background: var(--card-bg);
-            border-radius: 0 10px 10px 0;
-            font-style: italic;
-            color: var(--text-primary);
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
+.way p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; }
+.way p strong { color: var(--text-primary); }
+
+/* ── CTA ─────────────────────────────────────────────────────────── */
 .cta-block {
+            position: relative;
             text-align: center;
-            padding: 3rem 1.5rem;
+            padding: 5rem 1.5rem 4rem;
             max-width: 720px;
-            margin: 2rem auto;
+            margin: 0 auto;
         }
-.cta-block h2 { margin-bottom: 1rem; font-size: clamp(1.4rem, 2.6vw, 1.9rem); }
-.cta-block p { color: var(--text-secondary); margin-bottom: 1.5rem; }
-.btn-row { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+.cta-block::before {
+            content: '';
+            position: absolute;
+            left: 50%; top: 0;
+            width: 6rem; height: 1px;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+        }
+.cta-block h2 { margin-bottom: 1rem; font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -0.03em; }
+.cta-block p { color: var(--text-secondary); margin-bottom: 1.75rem; font-size: 1.05rem; }
+.btn-row { display: flex; gap: 1.25rem; justify-content: center; align-items: center; flex-wrap: wrap; }
 .btn {
             display: inline-block;
-            padding: 0.85rem 1.5rem;
+            padding: 0.9rem 1.6rem;
             border-radius: 10px;
             font-weight: 600;
             font-size: 0.95rem;
             text-decoration: none;
-            transition: transform 0.15s, box-shadow 0.15s;
+            transition: transform 0.15s var(--ease-out), box-shadow 0.15s;
             min-height: 44px;
             cursor: pointer;
             border: none;
         }
-.btn-primary {
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-violet));
-            color: #fff;
-        }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(99,102,241,0.3); }
-.btn-outline {
-            background: transparent;
-            border: 1px solid var(--card-border);
-            color: var(--text-primary);
+.link-quiet { color: var(--text-secondary); font-weight: 500; font-size: 0.95rem; }
+.link-quiet:hover { color: var(--accent-text); }
+
+/* ── Motion. Withheld only when JS is present to release it. ──────── */
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes appear { from { opacity: 0; } to { opacity: 1; } }
+@keyframes settle { from { transform: scale(1.045); } to { transform: scale(1); } }
+html.js .hero-copy > * { opacity: 0; animation: rise 0.9s var(--ease-out) forwards; }
+html.js .hero-copy > :nth-child(1) { animation-delay: 0.10s; }
+html.js .hero-copy > :nth-child(2) { animation-delay: 0.18s; }
+html.js .hero-copy > :nth-child(3) { animation-delay: 0.28s; }
+html.js .hero-copy > :nth-child(4) { animation-delay: 0.36s; }
+html.js .hero-copy > :nth-child(5) { animation-delay: 0.44s; }
+html.js .hero-copy > :nth-child(6) { animation-delay: 0.52s; }
+html.js .portrait { opacity: 0; animation: appear 1.3s ease-out 0.15s forwards; }
+html.js .portrait img { animation: settle 1.8s var(--ease-out) 0.15s forwards; }
+html.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.8s ease, transform 0.8s var(--ease-out); }
+html.js .reveal.is-in { opacity: 1; transform: none; }
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+            .section { column-gap: 2.5rem; }
         }
-.btn-outline:hover { border-color: var(--accent-text); color: var(--accent-text); }
-footer {
-            margin-top: 3rem;
-            padding: 2rem 1.5rem;
-            border-top: 1px solid var(--card-border);
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
+@media (max-width: 899px) {
+            main { padding-top: 62px; }
+            .hero { padding-top: 0; }
+            .hero-glow { right: -20%; top: -5%; width: 90%; }
+            .hero-inner {
+                flex-direction: column;
+                align-items: stretch;
+                min-height: 0;
+                padding: 0;
+            }
+            .portrait {
+                position: relative;
+                right: auto; bottom: auto;
+                width: min(100%, 520px, calc(74vh * 0.806));
+                margin: 0 auto;
+                -webkit-mask-image:
+                    linear-gradient(to right, transparent 0%, #000 12%),
+                    linear-gradient(to top, transparent 0%, #000 46%),
+                    linear-gradient(to bottom, transparent 0%, #000 10%),
+                    linear-gradient(to left, transparent 0%, #000 12%);
+                mask-image:
+                    linear-gradient(to right, transparent 0%, #000 12%),
+                    linear-gradient(to top, transparent 0%, #000 46%),
+                    linear-gradient(to bottom, transparent 0%, #000 10%),
+                    linear-gradient(to left, transparent 0%, #000 12%);
+            }
+            .hero-copy {
+                max-width: none;
+                margin-top: -22%;
+                padding: 0 1.5rem 3.25rem;
+            }
+            .hero-copy::before {
+                left: 0; right: 0;
+                top: -5rem; bottom: 0;
+                background: linear-gradient(to bottom, transparent 0%, var(--bg-primary) 5rem);
+            }
+            .hero h1 { font-size: clamp(3.5rem, 16vw, 5.5rem); }
+            .ledger-row { grid-template-columns: 1fr 1fr; }
+            .ledger-item { padding: 1.25rem 1.5rem; }
+            .ledger-item:nth-child(3) { border-left: 0; }
+            .ledger-item:nth-child(n+3) { border-top: 1px solid var(--hairline); }
+            .section {
+                grid-template-columns: 1fr;
+                row-gap: 1.75rem;
+                padding: 3.5rem 1.5rem;
+            }
+            .section-head { position: static; }
+            .section h2 { max-width: none; }
         }
-footer p { margin-bottom: 0.3rem; }
-footer a { color: var(--accent-text); }
-@media (max-width: 768px) {
+@media (max-width: 560px) {
             nav { padding: 0.75rem 1rem; }
-            .hero { padding: 3rem 1.25rem 2rem; }
-            .cred-grid { grid-template-columns: 1fr; }
-            .stat-row { grid-template-columns: repeat(2, 1fr); }
+            .nav-home { display: none; }
+            .cred-item { grid-template-columns: 1fr; row-gap: 0.5rem; }
+            .cred-label { padding-top: 0; }
+            .founder-credentials { font-size: 0.85rem; }
+            .pull-quote { padding: 1.75rem 1.25rem 1.5rem 2rem; font-size: 1.05rem; }
         }
-@media (max-width: 480px) {
-            .stat-row { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
-            .stat-value { font-size: 1.3rem; }
-        }
+
 @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
             * { transition: none !important; animation: none !important; }
+            html.js .hero-copy > *, html.js .portrait, html.js .reveal { opacity: 1; transform: none; }
+            html.js .portrait img { transform: none; }
         }
 </style>
     <link rel="stylesheet" href="/assets/css/shared.css">
@@ -341,87 +557,121 @@ footer a { color: var(--accent-text); }
 
     <main id="main">
         <!-- Hero -->
-        <section class="hero">
-            <div class="founder-mark" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 12a4 4 0 100-8 4 4 0 000 8z" stroke="white" stroke-width="1.8"/>
-                    <path d="M4 20c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-                </svg>
+        <section class="hero" aria-labelledby="founder-name">
+            <div class="hero-glow" aria-hidden="true"></div>
+            <div class="hero-inner">
+                <div class="portrait" id="portrait">
+                    <picture>
+                        <source type="image/webp"
+                                srcset="/assets/images/founder-480.webp 480w, /assets/images/founder-800.webp 800w"
+                                sizes="(max-width: 899px) 100vw, 46vw">
+                        <img src="/assets/images/founder-800.jpg"
+                             srcset="/assets/images/founder-480.jpg 480w, /assets/images/founder-800.jpg 800w"
+                             sizes="(max-width: 899px) 100vw, 46vw"
+                             width="800" height="993"
+                             alt="Raj, founder of QuietStaff, in a dark suit and open-collar shirt in front of a floor-to-ceiling office window"
+                             fetchpriority="high" decoding="async">
+                    </picture>
+                </div>
+                <div class="hero-copy">
+                    <p class="eyebrow">About the founder</p>
+                    <h1 id="founder-name">Raj</h1>
+                    <p class="hero-role">Founder &middot; CEO &middot; Chief AI Architect</p>
+                    <p class="hero-sub">QuietStaff is led by Raj &mdash; a senior engineering leader with over two decades building and scaling enterprise technology, and active doctoral research into enterprise AI adoption.</p>
+                    <p class="founder-credentials">Doctoral Researcher, <a href="https://www.eimt.edu.eu/" target="_blank" rel="noopener noreferrer">EIMT</a> (Switzerland) &middot; AI Researcher &middot; Engineering Leadership for 2+ decades</p>
+                    <p class="hero-links"><a href="https://www.linkedin.com/in/mohan-technical-leadership/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn &rarr;</a></p>
+                </div>
             </div>
-            <div class="eyebrow">About the Founder</div>
-            <h1>Meet <span class="text-gradient">Raj</span></h1>
-            <p class="founder-credentials">Doctoral Researcher, EIMT (UK) &middot; AI Researcher &middot; Engineering Leadership for 2+ decades</p>
-            <p class="hero-sub">QuietStaff is led by Raj — a senior engineering leader with over two decades building and scaling enterprise technology, and active doctoral research into enterprise AI adoption.</p>
-            <div class="founder-role">Founder &middot; CEO &middot; Chief AI Architect</div>
-            <p style="margin-top: 1.25rem;"><a href="https://www.linkedin.com/in/mohan-technical-leadership/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-text); font-weight: 600; font-size: 0.9rem;">Connect on LinkedIn &rarr;</a></p>
         </section>
 
         <!-- Stats -->
-        <section class="content" aria-label="Founder credentials at a glance">
-            <div class="stat-row">
-                <div class="stat">
-                    <div class="stat-value">2+</div>
-                    <div class="stat-label">Decades in Enterprise Tech</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">DBA</div>
-                    <div class="stat-label">Doctoral Research (EIMT)</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">AI</div>
-                    <div class="stat-label">Research &amp; Delivery</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-value">NHS</div>
-                    <div class="stat-label">Sector Experience</div>
-                </div>
-            </div>
+        <section class="ledger" aria-label="Founder credentials at a glance">
+            <ul class="ledger-row" role="list">
+                <li class="ledger-item">
+                    <span class="ledger-value">2+</span>
+                    <span class="ledger-label">Decades in Enterprise Tech</span>
+                </li>
+                <li class="ledger-item">
+                    <span class="ledger-value">DBA</span>
+                    <span class="ledger-label">Doctoral Research (EIMT)</span>
+                </li>
+                <li class="ledger-item">
+                    <span class="ledger-value">AI</span>
+                    <span class="ledger-label">Research &amp; Delivery</span>
+                </li>
+                <li class="ledger-item">
+                    <span class="ledger-value">NHS</span>
+                    <span class="ledger-label">Sector Experience</span>
+                </li>
+            </ul>
         </section>
 
         <!-- The thesis -->
-        <section class="content">
-            <h2>Why QuietStaff exists</h2>
-            <p>Raj spent over two decades building enterprise software, scaling cloud platforms, and leading engineering teams inside regulated industries. The problem that kept showing up wasn&rsquo;t that AI didn&rsquo;t work &mdash; it was that <strong>it never got implemented properly.</strong></p>
-            <p>Tools were bought and parked. Proofs of concept never made it to production. Advisors diagnosed but didn&rsquo;t build. Internal teams couldn&rsquo;t ship. And the businesses most exposed to the gap &mdash; UK SMBs &mdash; had no realistic way to close it.</p>
-            <blockquote>
-                &ldquo;Large enterprises have AI teams. UK SMBs have a shortlist of SaaS tools and a growing sense they&rsquo;re falling behind. QuietStaff is the missing middle: enterprise-grade AI, delivered as a managed service, sized for the businesses that actually need it.&rdquo;
-            </blockquote>
-        </section>
-
-        <!-- Credentials -->
-        <section class="content">
-            <h2>Credentials &amp; experience</h2>
-            <div class="cred-grid">
-                <div class="cred-card">
-                    <div class="cred-label">Technical Depth</div>
-                    <div class="cred-body">Over two decades architecting and delivering enterprise software and cloud-native systems for large organisations. Specialist in multi-model AI architectures.</div>
-                </div>
-                <div class="cred-card">
-                    <div class="cred-label">Sector Experience</div>
-                    <div class="cred-body">Delivered AI and data platforms into NHS and HealthTech environments, and financial services operations &mdash; regulated sectors where compliance, auditability, and privacy are non-negotiable.</div>
-                </div>
-                <div class="cred-card">
-                    <div class="cred-label">Academic Rigour</div>
-                    <div class="cred-body">Doctoral researcher at EIMT (UK). Research focus: enterprise AI adoption among UK SMBs &mdash; the exact problem QuietStaff exists to solve.</div>
-                </div>
+        <section class="section reveal" aria-labelledby="why-heading">
+            <div class="section-head">
+                <p class="section-index">01 &mdash; The thesis</p>
+                <h2 id="why-heading">Why QuietStaff exists</h2>
+            </div>
+            <div class="section-body">
+                <p>Raj spent over two decades building enterprise software, scaling cloud platforms, and leading engineering teams inside regulated industries. The problem that kept showing up wasn&rsquo;t that AI didn&rsquo;t work &mdash; it was that <strong>it never got implemented properly.</strong></p>
+                <p>Tools were bought and parked. Proofs of concept never made it to production. Advisors diagnosed but didn&rsquo;t build. Internal teams couldn&rsquo;t ship. And the businesses most exposed to the gap &mdash; UK SMBs &mdash; had no realistic way to close it.</p>
+                <blockquote class="pull-quote">
+                    &ldquo;Large enterprises have AI teams. UK SMBs have a shortlist of SaaS tools and a growing sense they&rsquo;re falling behind. QuietStaff is the missing middle: enterprise-grade AI, delivered as a managed service, sized for the businesses that actually need it.&rdquo;
+                </blockquote>
             </div>
         </section>
 
+        <!-- Credentials -->
+        <section class="section reveal" aria-labelledby="cred-heading">
+            <div class="section-head">
+                <p class="section-index">02 &mdash; Background</p>
+                <h2 id="cred-heading">Credentials &amp; experience</h2>
+            </div>
+            <ul class="cred-list section-body" role="list">
+                <li class="cred-item">
+                    <div class="cred-label">Technical Depth</div>
+                    <div class="cred-body">Over two decades architecting and delivering enterprise software and cloud-native systems for large organisations. Specialist in multi-model AI architectures.</div>
+                </li>
+                <li class="cred-item">
+                    <div class="cred-label">Sector Experience</div>
+                    <div class="cred-body">Delivered AI and data platforms into NHS and HealthTech environments, and financial services operations &mdash; regulated sectors where compliance, auditability, and privacy are non-negotiable.</div>
+                </li>
+                <li class="cred-item">
+                    <div class="cred-label">Academic Rigour</div>
+                    <div class="cred-body">Doctoral researcher at EIMT (Switzerland). Research focus: enterprise AI adoption among UK SMBs &mdash; the exact problem QuietStaff exists to solve.</div>
+                </li>
+            </ul>
+        </section>
+
         <!-- Approach -->
-        <section class="content">
-            <h2>How Raj works</h2>
-            <p><strong>Direct.</strong> Proposals are fixed-scope, fixed-fee. Risks are flagged before they become problems. You&rsquo;ll know where you stand after the first conversation.</p>
-            <p><strong>Technical.</strong> Every QuietStaff engagement is architected personally by Raj. You&rsquo;re not being passed to a junior after the sales call.</p>
-            <p><strong>Outcome-led.</strong> We don&rsquo;t charge for activity. We charge for systems that run, for workflows that collapse, for headcount that doesn&rsquo;t need hiring. Every engagement is tied to measurable operational impact.</p>
+        <section class="section reveal" aria-labelledby="how-heading">
+            <div class="section-head">
+                <p class="section-index">03 &mdash; Approach</p>
+                <h2 id="how-heading">How Raj works</h2>
+            </div>
+            <ul class="ways section-body" role="list">
+                <li class="way">
+                    <span class="way-n" aria-hidden="true">01</span>
+                    <p><strong>Direct.</strong> Proposals are fixed-scope, fixed-fee. Risks are flagged before they become problems. You&rsquo;ll know where you stand after the first conversation.</p>
+                </li>
+                <li class="way">
+                    <span class="way-n" aria-hidden="true">02</span>
+                    <p><strong>Technical.</strong> Every QuietStaff engagement is architected personally by Raj. You&rsquo;re not being passed to a junior after the sales call.</p>
+                </li>
+                <li class="way">
+                    <span class="way-n" aria-hidden="true">03</span>
+                    <p><strong>Outcome-led.</strong> We don&rsquo;t charge for activity. We charge for systems that run, for workflows that collapse, for headcount that doesn&rsquo;t need hiring. Every engagement is tied to measurable operational impact.</p>
+                </li>
+            </ul>
         </section>
 
         <!-- CTA -->
-        <section class="cta-block">
+        <section class="cta-block reveal">
             <h2>Ready to start a conversation?</h2>
             <p>The fastest way in is the free AI Score. One working session, written back within five working days. No cost, no obligation.</p>
             <div class="btn-row">
                 <a href="/#cta" class="btn btn-primary">Get your free AI Score &rarr;</a>
-                <a href="../" class="btn btn-outline">&larr; Back to Home</a>
+                <a href="../" class="link-quiet">&larr; Back to Home</a>
             </div>
         </section>
     </main>
@@ -433,12 +683,6 @@ footer a { color: var(--accent-text); }
     <script>
         // Theme toggle
         (function() {
-            try {
-                var saved = localStorage.getItem('quietstaff-theme');
-                if (saved === 'light' || saved === 'dark') {
-                    document.documentElement.setAttribute('data-theme', saved);
-                }
-            } catch (e) {}
             var btn = document.getElementById('themeToggle');
             if (!btn) return;
             btn.addEventListener('click', function() {
@@ -449,6 +693,53 @@ footer a { color: var(--accent-text); }
                 var meta = document.querySelector('meta[name="theme-color"]');
                 if (meta) meta.setAttribute('content', next === 'light' ? '#ffffff' : '#030710');
             });
+        })();
+
+        // Motion: scroll reveal for the sections, slow parallax on the portrait.
+        // Both stand down entirely under prefers-reduced-motion.
+        (function() {
+            var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+            var reveals = document.querySelectorAll('.reveal');
+
+            function showAll() {
+                for (var i = 0; i < reveals.length; i++) reveals[i].classList.add('is-in');
+            }
+            if (reduce.matches || !('IntersectionObserver' in window)) {
+                showAll();
+            } else {
+                var io = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-in');
+                            io.unobserve(entry.target);
+                        }
+                    });
+                }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+                for (var j = 0; j < reveals.length; j++) io.observe(reveals[j]);
+            }
+
+            var portrait = document.getElementById('portrait');
+            var wide = window.matchMedia('(min-width: 900px)');
+            if (!portrait || reduce.matches) return;
+
+            var ticking = false;
+            function update() {
+                ticking = false;
+                if (!wide.matches) { portrait.style.transform = ''; return; }
+                var y = Math.min(window.scrollY || window.pageYOffset || 0, 900);
+                portrait.style.transform = 'translate3d(0,' + (y * 0.12).toFixed(1) + 'px,0) scale(' + (1 + y * 0.00004).toFixed(4) + ')';
+            }
+            function onScroll() {
+                if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll, { passive: true });
+            if (reduce.addEventListener) {
+                reduce.addEventListener('change', function(e) {
+                    if (e.matches) { window.removeEventListener('scroll', onScroll); portrait.style.transform = ''; showAll(); }
+                });
+            }
+            update();
         })();
     </script>
 </body>
