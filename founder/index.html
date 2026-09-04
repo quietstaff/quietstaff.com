@@ -1,11 +1,12 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en-GB" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#030710">
-    <meta name="description" content="About the Founder — QuietStaff. Senior enterprise technology leader and doctoral researcher building AI for UK SMBs.">
     <title>About the Founder &mdash; QuietStaff</title>
+    {% include head-meta.html title="Meet the Founder" desc="QuietStaff is one senior engineering architect with two decades in enterprise technology and active doctoral research into AI adoption in UK SMBs — not a delivery team you never meet." path="founder/" type="profile" %}
     <link rel="stylesheet" href="/assets/css/fonts.css">
     <script type="application/ld+json">
     {
@@ -95,7 +96,7 @@ nav {
             cursor: pointer;
             transition: border-color 0.2s, color 0.2s;
         }
-.theme-toggle:hover, .nav-home:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
+.theme-toggle:hover, .nav-home:hover { border-color: var(--accent-text); color: var(--accent-text); }
 main { padding-top: 80px; }
 .hero {
             max-width: 860px;
@@ -107,7 +108,7 @@ main { padding-top: 80px; }
             font-size: 0.72rem;
             font-weight: 700;
             letter-spacing: 0.18em;
-            color: var(--accent-primary);
+            color: var(--accent-text);
             text-transform: uppercase;
             margin-bottom: 1rem;
         }
@@ -190,7 +191,7 @@ section.content p strong { color: var(--text-primary); }
             font-size: 0.7rem;
             font-weight: 700;
             letter-spacing: 0.12em;
-            color: var(--accent-primary);
+            color: var(--accent-text);
             text-transform: uppercase;
             margin-bottom: 0.6rem;
         }
@@ -268,7 +269,7 @@ blockquote {
             border: 1px solid var(--card-border);
             color: var(--text-primary);
         }
-.btn-outline:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
+.btn-outline:hover { border-color: var(--accent-text); color: var(--accent-text); }
 footer {
             margin-top: 3rem;
             padding: 2rem 1.5rem;
@@ -278,7 +279,7 @@ footer {
             font-size: 0.85rem;
         }
 footer p { margin-bottom: 0.3rem; }
-footer a { color: var(--accent-primary); }
+footer a { color: var(--accent-text); }
 @media (max-width: 768px) {
             nav { padding: 0.75rem 1rem; }
             .hero { padding: 3rem 1.25rem 2rem; }
@@ -294,6 +295,7 @@ footer a { color: var(--accent-primary); }
             * { transition: none !important; animation: none !important; }
         }
 </style>
+    <link rel="stylesheet" href="/assets/css/shared.css">
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to content</a>
@@ -351,7 +353,7 @@ footer a { color: var(--accent-primary); }
             <p class="founder-credentials">Doctoral Researcher, EIMT (UK) &middot; AI Researcher &middot; Engineering Leadership for 2+ decades</p>
             <p class="hero-sub">QuietStaff is led by Raj — a senior engineering leader with over two decades building and scaling enterprise technology, and active doctoral research into enterprise AI adoption.</p>
             <div class="founder-role">Founder &middot; CEO &middot; Chief AI Architect</div>
-            <p style="margin-top: 1.25rem;"><a href="https://www.linkedin.com/in/mohan-technical-leadership/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary); font-weight: 600; font-size: 0.9rem;">Connect on LinkedIn &rarr;</a></p>
+            <p style="margin-top: 1.25rem;"><a href="https://www.linkedin.com/in/mohan-technical-leadership/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-text); font-weight: 600; font-size: 0.9rem;">Connect on LinkedIn &rarr;</a></p>
         </section>
 
         <!-- Stats -->
@@ -416,19 +418,16 @@ footer a { color: var(--accent-primary); }
         <!-- CTA -->
         <section class="cta-block">
             <h2>Ready to start a conversation?</h2>
-            <p>The fastest way in is a QuietStaff AI Score. Fixed fee. Ninety-day roadmap. No internal AI team required.</p>
+            <p>The fastest way in is the free AI Score. One working session, written back within five working days. No cost, no obligation.</p>
             <div class="btn-row">
-                <a href="../#cta" class="btn btn-primary">Get your free AI Score &rarr;</a>
-                <a href="mailto:raj@quietstaff.com?subject=Intro%20call%20%E2%80%94%20QuietStaff" class="btn btn-outline">Book an Intro Call &rarr;</a>
-                <a href="mailto:raj@quietstaff.com" class="btn btn-outline">Email Raj &rarr;</a>
+                <a href="/#cta" class="btn btn-primary">Get your free AI Score &rarr;</a>
                 <a href="../" class="btn btn-outline">&larr; Back to Home</a>
             </div>
         </section>
     </main>
 
     <footer role="contentinfo">
-        <p>&copy; 2026 QuietStaff Ltd. Registered in England &amp; Wales.</p>
-        <p>66 Paul Street, London EC2A 4NE</p>
+        {% include footer.html %}
     </footer>
 
     <script>

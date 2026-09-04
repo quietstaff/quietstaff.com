@@ -1,0 +1,120 @@
+/* ────────────────────────────────────────────────────────────────
+   QuietStaff — shared design tokens and shared components.
+   Linked AFTER each page's inline <style>, so the token values here
+   are canonical for every page. Properties a page defines and this
+   file does not are left untouched.
+
+   Every colour pair below is WCAG 2.1 AA verified (>= 4.5:1). Do not
+   change one without re-running the ratio check in
+   .planning/research/website-audit-2026-09-04/FIX-LOG-ranks-1-5.md.
+   ──────────────────────────────────────────────────────────────── */
+
+:root {
+    /* surfaces */
+    --bg-primary:   #030710;
+    --bg-secondary: #0f172a;
+
+    /* text — text-secondary 7.86:1, text-muted 7.12:1 on --bg-primary */
+    --text-primary:   #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted:     #8b9bb0;
+
+    /* accents.
+       --accent-primary is the BRAND colour: borders, gradients, glows.
+       Never use it for text or as a filled-button background — it fails
+       AA in both roles (4.47:1 white-on-it, 4.00:1 as text on a card).
+       --accent-text  6.76:1 on --bg-primary, 5.98:1 on --bg-secondary
+       --accent-btn   6.29:1 with white text                          */
+    --accent-primary: #6366f1;
+    --accent-text:    #818cf8;
+    --accent-btn:     #4f46e5;
+}
+
+[data-theme="light"] {
+    --bg-primary:   #ffffff;
+    --bg-secondary: #f8fafc;
+
+    /* text-secondary 7.58:1, text-muted 4.76:1 on white / 4.55:1 on #f8fafc.
+       Was #8b9bb0 at 2.83:1 — the P1-15 offender. */
+    --text-primary:   #0f172a;
+    --text-secondary: #475569;
+    --text-muted:     #64748b;
+
+    --accent-primary: #6366f1;
+    --accent-text:    #4f46e5;   /* 6.29:1 on white, 6.01:1 on #f8fafc */
+    --accent-btn:     #4f46e5;   /* 6.29:1 with white text            */
+}
+
+/* ── One filled-button treatment, every page ────────────────────── */
+.btn-primary,
+.nav-button,
+.mobile-cta-btn,
+.nav-cta,
+.cta-btn,
+.form-submit {
+    background: var(--accent-btn);
+    border-color: var(--accent-btn);
+    color: #ffffff;
+}
+.btn-primary:hover,
+.nav-button:hover,
+.mobile-cta-btn:hover,
+.nav-cta:hover,
+.cta-btn:hover,
+.form-submit:hover {
+    background: #4338ca;
+    border-color: #4338ca;
+    color: #ffffff;
+}
+
+/* ── Shared footer ──────────────────────────────────────────────── */
+.qs-footer-legal {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem 2.5rem;
+    text-align: center;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+    border-top: 1px solid rgba(148, 163, 184, 0.14);
+}
+.qs-footer-legal p { margin: 0.15rem 0; }
+.qs-footer-legal a { color: var(--text-muted); text-decoration: underline; }
+.qs-footer-legal a:hover { color: var(--accent-text); }
+
+/* ── Minimal nav, for pages that had none ───────────────────────── */
+.qs-nav {
+    position: sticky; top: 0; z-index: 900;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 2rem;
+    background: var(--bg-primary);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+}
+.qs-nav-brand {
+    font-weight: 700; letter-spacing: -0.3px;
+    color: var(--text-primary); text-decoration: none; font-size: 1.05rem;
+}
+.qs-nav-links { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
+.qs-nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.92rem; }
+.qs-nav-links a:hover { color: var(--accent-text); }
+@media (max-width: 640px) {
+    .qs-nav { padding: 0.75rem 1.1rem; flex-wrap: wrap; }
+    .qs-nav-links { gap: 0.9rem; }
+    .qs-nav-links a { font-size: 0.85rem; }
+}
+
+/* ── Sticky collision guard ─────────────────────────────────────────
+   /privacy/ and /sub-processors/ carry .legal-header (a home link plus
+   the theme toggle) from legal.css, which is `position: sticky; top: 0`.
+   Those pages now also render .qs-nav, which is sticky at top: 0 too.
+   Two sticky siblings pinned to the same offset do not space each other
+   — they stack on the same pixel row and overlap. .qs-nav supersedes the
+   header's navigation role, so the header stops being sticky and simply
+   scrolls away; the theme toggle stays reachable at the top of the page. */
+.legal-header { position: static; }
+/* .qs-nav already carries the brand link home, so the legal header's own
+   "← QuietStaff home" is a second route to the same place one row below it.
+   Hide the link; the bar keeps the theme toggle, right-aligned. */
+.legal-home-link { display: none; }
+.legal-header-inner { justify-content: flex-end; }

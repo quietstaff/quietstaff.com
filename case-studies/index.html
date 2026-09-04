@@ -1,11 +1,12 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en-GB" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#030710">
 <title>Work &mdash; QuietStaff</title>
-<meta name="description" content="Systems QuietStaff has built recently, and three worked scenarios showing how the method would apply for a UK SMB in healthcare, finance and logistics.">
+{% include head-meta.html title="Illustrative Scenarios" desc="Three illustrative scenarios across healthcare, finance and logistics — what QuietStaff would build, how impact would be measured, and what managed AI replaces. Illustrative, not client engagements." path="case-studies/" %}
 <script>(function(){try{var s=localStorage.getItem('quietstaff-theme');document.documentElement.setAttribute('data-theme',s==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})()</script>
 <link rel="stylesheet" href="/assets/css/fonts.css">
 <style>
@@ -567,6 +568,7 @@ footer .sep{color:var(--ink-meta);padding:0 6px;}
   }
 }
 </style>
+    <link rel="stylesheet" href="/assets/css/shared.css">
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to content</a>
@@ -831,8 +833,8 @@ footer .sep{color:var(--ink-meta);padding:0 6px;}
 </main>
 
 <footer>
-  <p>&copy; 2026 QuietStaff Ltd. Registered in England &amp; Wales. 66 Paul Street, EC2A 4NE, London.</p>
-  <p style="margin-top:8px;"><a href="../">Home</a><span class="sep">&middot;</span><a href="../#services">Services</a><span class="sep">&middot;</span><a href="mailto:contact@quietstaff.com">contact@quietstaff.com</a></p>
+  <p style="margin-top:8px;"><a href="../">Home</a><span class="sep">&middot;</span><a href="../#services">Services</a></p>
+  {% include footer.html %}
 </footer>
 
 <script>

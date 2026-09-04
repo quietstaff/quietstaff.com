@@ -1,0 +1,76 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
+    <title>Page not found — QuietStaff</title>
+    <meta name="robots" content="noindex, follow">
+    <script>
+        (function(){try{var s=localStorage.getItem('quietstaff-theme');
+        document.documentElement.setAttribute('data-theme', s==='light'?'light':'dark');}
+        catch(e){document.documentElement.setAttribute('data-theme','dark');}})();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/brand/logo-package/svg/quietstaff-favicon.svg">
+    <link rel="stylesheet" href="/assets/css/shared.css">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .wrap {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 5rem 1.5rem;
+        }
+        .code {
+            font-size: clamp(3.5rem, 12vw, 6rem);
+            font-weight: 200;
+            letter-spacing: -2px;
+            color: var(--accent-text);
+            margin: 0 0 0.5rem;
+            line-height: 1;
+        }
+        h1 { font-size: clamp(1.35rem, 4vw, 1.85rem); font-weight: 600; margin: 0 0 0.85rem; }
+        p { color: var(--text-secondary); max-width: 460px; margin: 0 0 1.75rem; line-height: 1.7; }
+        .links { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
+        .links a {
+            text-decoration: none;
+            padding: 0.75rem 1.4rem;
+            border-radius: 8px;
+            font-size: 0.92rem;
+            font-weight: 500;
+            border: 1px solid var(--accent-btn);
+        }
+        .links a.primary { background: var(--accent-btn); color: #fff; }
+        .links a.ghost { color: var(--accent-text); }
+    </style>
+</head>
+<body>
+    {% include nav.html %}
+    <div class="wrap">
+        <p class="code">404</p>
+        <h1>That page isn&rsquo;t here.</h1>
+        <p>It may have moved, or it may never have existed. Either way, the quickest route back is the homepage &mdash; or start with the free AI Score.</p>
+        <div class="links">
+            <a class="primary" href="/#cta">Get your free AI Score &rarr;</a>
+            <a class="ghost" href="/">Back to the homepage</a>
+        </div>
+    </div>
+    <footer role="contentinfo">
+        {% include footer.html %}
+    </footer>
+</body>
+</html>

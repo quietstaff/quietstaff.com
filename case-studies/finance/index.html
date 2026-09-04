@@ -1,11 +1,12 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en-GB" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#030710">
 <title>Finance Scenario (Illustrative) — QuietStaff</title>
-<meta name="description" content="An illustrative example of how QuietStaff's methodology could clear an invoice backlog and streamline client onboarding for an accountancy practice — not a completed client engagement.">
+{% include head-meta.html title="Finance Scenario — Invoice and Reconciliation AI" desc="An illustrative financial-services scenario: where AI would take invoice matching, reconciliation and inbound queries off a finance team, and how the payback would be measured." path="case-studies/finance/" type="article" %}
 <script>(function(){try{var s=localStorage.getItem('quietstaff-theme');document.documentElement.setAttribute('data-theme',s==='light'?'light':'dark');}catch(e){document.documentElement.setAttribute('data-theme','dark');}})()</script>
 <!-- Self-hosted fonts (was Google Fonts CDN). PECR / UK GDPR clean — no third-party transfers on first byte. -->
     <link rel="stylesheet" href="/assets/css/fonts.css">
@@ -100,6 +101,7 @@ body{background:var(--desk);}
   .score-bars{width:100%;}.cta-section{padding:32px 20px;}.nav-cta{padding:8px 14px;font-size:12px;}}
 @media(max-width:480px){.nav-cta{display:none;}.nav-logo svg{height:32px;}nav{padding-left:14px;padding-right:14px;}.results-table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;font-size:13px;}.results-table th,.results-table td{padding:8px 10px;}}
 </style>
+    <link rel="stylesheet" href="/assets/css/shared.css">
 </head>
 <body>
 <a href="#main" class="skip-link">Skip to content</a>
@@ -217,8 +219,8 @@ body{background:var(--desk);}
 
 </main>
 <footer>
-  <p>&copy; 2026 QuietStaff Ltd. Registered in England &amp; Wales. 66 Paul Street, EC2A 4NE, London.</p>
-  <p style="margin-top:8px;"><a href="../../">Home</a> &nbsp;&middot;&nbsp; <a href="../">Work</a> &nbsp;&middot;&nbsp; <a href="mailto:contact@quietstaff.com">contact@quietstaff.com</a></p>
+  <p style="margin-top:8px;"><a href="../../">Home</a> &nbsp;&middot;&nbsp; <a href="../">Work</a></p>
+  {% include footer.html %}
 </footer>
 
 <script>

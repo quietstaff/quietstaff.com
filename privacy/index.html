@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -5,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark light">
     <title>Privacy Policy — QuietStaff Ltd</title>
+    {% include head-meta.html title="Privacy Policy" desc="How QuietStaff Ltd collects, uses, stores and deletes personal data — lawful bases, retention periods, your UK GDPR rights, and our ICO registration." path="privacy/" %}
 
     <!-- Theme: read preference before paint -->
     <script>
@@ -18,15 +21,6 @@
             }
         })();
     </script>
-
-    <!-- SEO -->
-    <meta name="description" content="QuietStaff Ltd Privacy Policy — how we collect, use, share, and protect personal data under UK GDPR, DPA 2018, and PECR.">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://quietstaff.co.uk/privacy">
-
-    <!-- Favicon (same as main site) -->
-    <link rel="icon" type="image/svg+xml" href="/brand/logo-package/svg/quietstaff-favicon.svg">
-    <meta name="theme-color" content="#030710">
 
     <!-- Self-hosted fonts (PECR clean — no third-party transfers) -->
         <link rel="stylesheet" href="/assets/css/fonts.css">
@@ -84,8 +78,8 @@ body {
             padding: 0;
         }
 .theme-toggle:hover {
-            color: var(--accent-primary);
-            border-color: var(--accent-primary);
+            color: var(--accent-text);
+            border-color: var(--accent-text);
         }
 [data-theme="light"] .theme-toggle .icon-sun { display: block; }
 [data-theme="light"] .theme-toggle .icon-moon { display: none; }
@@ -112,9 +106,12 @@ footer {
             .footer-inner { flex-direction: column; text-align: center; }
         }
 </style>
+    <link rel="stylesheet" href="/assets/css/shared.css">
 </head>
 
 <body>
+
+{% include nav.html %}
 
 <header class="legal-header">
     <div class="legal-header-inner">
@@ -393,17 +390,7 @@ footer {
 </main>
 
 <footer>
-    <div class="footer-inner">
-        <div class="footer-links">
-            <a href="/">Home</a>
-            <a href="/privacy">Privacy</a>
-            <a href="/sub-processors">Sub-processors</a>
-            <a href="mailto:contact@quietstaff.com">Contact</a>
-        </div>
-        <div class="footer-meta">
-            &copy; 2026 QuietStaff Ltd &middot; Company No. 17171308 &middot; ICO ZC130484
-        </div>
-    </div>
+        {% include footer.html %}
 </footer>
 
 <script>
