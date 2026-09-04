@@ -253,7 +253,6 @@ nav.scrolled{border-bottom-color:var(--hairline);}
   color:var(--ink-meta);
   display:flex;align-items:baseline;gap:14px;
 }
-.deck-head .label .count{color:var(--accent-ink);}
 .deck-head h2{
   font-size:clamp(1.7rem,3.4vw,2.4rem);
   font-weight:800;letter-spacing:-0.03em;line-height:1.12;
@@ -302,16 +301,10 @@ nav.scrolled{border-bottom-color:var(--hairline);}
 .card:focus-within{border-color:var(--accent-ink);}
 
 .card-head{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  display:flex;align-items:center;justify-content:center;gap:12px;
   padding:14px 20px 12px 22px;
   border-bottom:1px solid var(--stock-rule);
 }
-.card-idx{
-  font-family:'JetBrains Mono',ui-monospace,monospace;
-  font-size:11px;font-weight:600;letter-spacing:.16em;
-  color:var(--ink-meta);
-}
-.card-idx b{color:var(--accent-ink);font-weight:600;}
 .card-notch{
   width:26px;height:6px;border-radius:3px;
   background:var(--stock-rule);
@@ -343,7 +336,7 @@ nav.scrolled{border-bottom-color:var(--hairline);}
 }
 .card-toggle{
   margin-top:auto;
-  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  display:flex;align-items:center;justify-content:center;gap:10px;
   width:100%;
   padding:14px 22px;
   margin-top:18px;
@@ -357,13 +350,12 @@ nav.scrolled{border-bottom-color:var(--hairline);}
 }
 .card-toggle:hover{background:color-mix(in srgb,var(--accent-primary) 9%,var(--stock));}
 .card-toggle .chev{
-  display:inline-block;font-size:13px;line-height:1;
+  /* the bar's only mark now that the text label is gone — sized up from 13px
+     so it still reads as an affordance on its own */
+  display:inline-block;font-size:16px;line-height:1;
   transition:transform .3s cubic-bezier(.2,.7,.3,1);
 }
 .card.is-open .card-toggle .chev{transform:rotate(180deg);}
-.card-toggle .lbl-open{display:none;}
-.card.is-open .card-toggle .lbl-shut{display:none;}
-.card.is-open .card-toggle .lbl-open{display:inline;}
 
 /* the deal-in: one orchestrated load, then it stays put */
 @media (prefers-reduced-motion:no-preference){
@@ -643,7 +635,7 @@ footer .sep{color:var(--ink-meta);padding:0 6px;}
     <!-- ============================ DECK ONE ============================ -->
     <section class="deck-section" aria-labelledby="deck-one-h">
       <div class="deck-head">
-        <div class="label"><span>Selected Work</span><span class="count">12 cards</span></div>
+        <div class="label"><span>Selected Work</span></div>
         <h2 id="deck-one-h">Systems built, recently</h2>
         <p>Governance tooling, data-boundary enforcement, observability, monitoring and pipeline work. Described at the engineering level &mdash; what was built, how it was built, and where the hard parts were. Commercial detail is held back by agreement.</p>
       </div>
@@ -651,111 +643,111 @@ footer .sep{color:var(--ink-meta);padding:0 6px;}
       <div class="deck">
 
         <article class="card">
-          <div class="card-head"><span class="card-idx mono"><b>01</b> / 12</span><span class="card-notch" aria-hidden="true"></span></div>
+          <div class="card-head"><span class="card-notch" aria-hidden="true"></span></div>
           <h3 class="card-title">QuietClean &mdash; a 14-phase governance model for AI-authored software</h3>
           <div class="card-body" id="b01">
             <p>A governed software lifecycle for code written with AI. Every stage &mdash; scoping through review to release &mdash; ran through a named phase with its own entry and exit criteria, so a change could always be located at a known point in the lifecycle rather than treated as an ungoverned edit. Its own marketing and documentation copy was linted for overclaiming against a maintained denylist, failing the build on a hit; anything the lint could not adjudicate routed to a named human reviewer before it could ship. A DPIA was carried out and kept current for as long as it processed personal data.</p>
           </div>
-          <button class="card-toggle" aria-expanded="false" aria-controls="b01"><span><span class="lbl-shut">Turn card</span><span class="lbl-open">Turn back</span></span><span class="chev" aria-hidden="true">&#9662;</span></button>
+          <button class="card-toggle" aria-expanded="false" aria-controls="b01" aria-label="Show more"><span class="chev" aria-hidden="true">&#9662;</span></button>
         </article>
 
         <article class="card">
-          <div class="card-head"><span class="card-idx mono"><b>02</b> / 12</span><span class="card-notch" aria-hidden="true"></span></div>
+          <div class="card-head"><span class="card-notch" aria-hidden="true"></span></div>
           <h3 class="card-title">A commerce build with a compile-time data boundary</h3>
           <div class="card-body" id="b02">
             <p>Six parallel research workstreams &mdash; demand, competition, operations, costing, financials and risk &mdash; run to completion before any product code was written. The build itself carries a margin-protection pricing engine whose cost and margin fields must never reach the browser, and that boundary is enforced by a compile-time assertion rather than a runtime filter or a code-review checklist: pass a cost-bearing data shape toward client-facing code and the build fails before it ships. On top of that boundary, a live 3D product configurator and server-generated quote and RFQ documents.</p>
           </div>
-          <button class="card-toggle" aria-expanded="false" aria-controls="b02"><span><span class="lbl-shut">Turn card</span><span class="lbl-open">Turn back</span></span><span class="chev" aria-hidden="true">&#9662;</span></button>
+          <button class="card-toggle" aria-expanded="false" aria-controls="b02" aria-label="Show more"><span class="chev" aria-hidden="true">&#9662;</span></button>
         </article>
 
         <article class="card">
-          <div class="card-head"><span class="card-idx mono"><b>03</b> / 12</span><span class="card-notch" aria-hidden="true"></span></div>
+          <div class="card-head"><span class="card-notch" aria-hidden="true"></span></div>
           <h3 class="card-title">Mission Control &mdash; a live agent-operations view</h3>
           <div class="card-body" id="b03">
             <p>A Node dashboard that tails a coding agent&rsquo;s own session transcripts through a filesystem watch, including per-subagent transcript files, and serves a live view: current status, the tool in use right now, token spend, elapsed time, session cost and context-window usage. Zero npm dependencies &mdash; the whole thing runs with <code>node server.js</code>. Built in a single day.</p>
           </div>
-          <button class="card-toggle" aria-expanded="false" aria-controls="b03"><span><span class="lbl-shut">Turn card</span><span class="lbl-open">Turn back</span></span><span class="chev" aria-hidden="true">&#9662;</span></button>
+          <button class="card-toggle" aria-expanded="false" aria-controls="b03" aria-label="Show more"><span class="chev" aria-hidden="true">&#9662;</span></button>
         </article>
 
         <article class="card">
-          <div class="card-head"><span class="card-idx mono"><b>04</b> / 12</span><span class="card-notch" aria-hidden="true"></span></div>
+          <div class="card-head"><span class="card-notch" aria-hidden="true"></span></div>
           <h3 class="card-title">Atlas &mdash; a cross-project observability layer, and the case for not selling it</h3>
           <div class="card-body" id="b04">
             <p>A cross-project status registry and collector tracking every project run through the toolchain, feeding a dashboard on a scheduled local collection cycle. It answers the question every multi-project operator eventually asks: what is actually running, and where. The registry was built first, then sized as a product &mdash; and the architecture, competitive and market-viability research that followed reached a plain verdict that the addressable market was too small to justify productising it. It stayed an internal tool.</p>
           </div>
-          <button class="card-toggle" aria-expanded="false" aria-controls="b04"><span><span class="lbl-shut">Turn card</span><span class="lbl-open">Turn back</span></span><span class="chev" aria-hidden="true">&#9662;</span></button>
+          <button class="card-toggle" aria-expanded="false" aria-controls="b04" aria-label="Show more"><span class="chev" aria-hidden="true">&#9662;</span></button>
         </article>
 
         <article class="card">
-          <div class="card-head"><span class="card-idx mono"><b>05</b> / 12</span><span class="card-notch" aria-hidden="true"></span></div>
+          <div class="card-head"><span class="card-notch" aria-hidden="true"></span></div>
           <h3 class="card-title">A Golden Signals monitor, deployed as a system service</h3>
           <div class="card-body" id="b05">
             <p>A bash-first monitoring service on the classical Golden Signals method: external heartbeat, disk usage, memory usage and container count, each on its own schedule. It ships with its own installer script and a macOS LaunchAgent definition, so it runs continuously as a background service instead of relying on someone remembering to check it. Small, tested, and boring on purpose &mdash; which is the point of the method.</p>
           </div>
-          <button class="card-toggle" aria-expanded="false" aria-controls="b05"><span><span class="lbl-shut">Turn card</span><span class="lbl-open">Turn back</span></span><span class="chev" aria-hidden="true">&#9662;</span></button>
+          <button class="card-toggle" aria-expanded="false" aria-controls="b05" aria-label="Show more"><span class="chev" aria-hidden="true">&#9662;</span></button>
         </article>
 
         <article class="card">
-          <div class="card-head"><span class="card-idx mono"><b>06</b> / 12</span><span class="card-notch" aria-hidden="true"></span></div>
+          <div class="card-head"><span class="card-notch" aria-hidden="true"></span></div>
           <h3 class="card-title">A naming pipeline with authoritative domain clearance</h3>
           <div class="card-body" id="b06">
             <p>Built to solve a one-off naming problem for a real venture, then generalised. A brief goes in; genre-diverse candidates come out; each is checked against authoritative domain-registry clearance data rather than a guess or a cached list; results fan out across a registry proxy; and a fixed scoring rubric ranks the shortlist that emerges. The naming problem belonged to one venture. The pipeline that solved it did not.</p>
           </div>
-          <button class="card-toggle" aria-expanded="false" aria-controls="b06"><span><span class="lbl-shut">Turn card</span><span class="lbl-open">Turn back</span></span><span class="chev" aria-hidden="true">&#9662;</span></button>
+          <button class="card-toggle" aria-expanded="false" aria-controls="b06" aria-label="Show more"><span class="chev" aria-hidden="true">&#9662;</span></button>
         </article>
 
         <article class="card">
-          <div class="card-head"><span class="card-idx mono"><b>07</b> / 12</span><span class="card-notch" aria-hidden="true"></span></div>
+          <div class="card-head"><span class="card-notch" aria-hidden="true"></span></div>
           <h3 class="card-title">A billing and documents portal for a coworking operator</h3>
           <div class="card-body" id="b07">
             <p>Live since August 2026. A password-gated web portal front-office staff use to raise tax-compliant invoices, quotations and payment receipts against the live member ledger. Two pricing modes: rate-driven, where tax is added on top, and agreed-total, where the taxable amount has to be worked back out of a fixed inclusive figure &mdash; which is not cleanly invertible under statutory rounding, so the generator searches for the taxable base that reproduces the target total exactly. Multi-line documents allocate the subtotal proportionally with the last line absorbing the rounding remainder, so line amounts always sum to the total. Quotations prorate a partial first month against a date range rather than rounding to whole months.</p>
           </div>
-          <button class="card-toggle" aria-expanded="false" aria-controls="b07"><span><span class="lbl-shut">Turn card</span><span class="lbl-open">Turn back</span></span><span class="chev" aria-hidden="true">&#9662;</span></button>
+          <button class="card-toggle" aria-expanded="false" aria-controls="b07" aria-label="Show more"><span class="chev" aria-hidden="true">&#9662;</span></button>
         </article>
 
         <article class="card">
-          <div class="card-head"><span class="card-idx mono"><b>08</b> / 12</span><span class="card-notch" aria-hidden="true"></span></div>
+          <div class="card-head"><span class="card-notch" aria-hidden="true"></span></div>
           <h3 class="card-title">Releasing it without breaking a live ledger</h3>
           <div class="card-body" id="b08">
             <p>The portal writes into a spreadsheet three people already had open, which has no transactional isolation of its own. Every write takes a document lock with a timeout, so two staff cannot race the same receipt number. The password exists only as a hash in a script property &mdash; not in source, not in docs, not in version control &mdash; and is compared with a hand-rolled constant-time check, because the runtime has no native one. It went live against a written checklist: backup taken and read back before promotion, every document type test-generated and visually inspected as a finished page, and a confirmed zero dummy records in production.</p>
           </div>
-          <button class="card-toggle" aria-expanded="false" aria-controls="b08"><span><span class="lbl-shut">Turn card</span><span class="lbl-open">Turn back</span></span><span class="chev" aria-hidden="true">&#9662;</span></button>
+          <button class="card-toggle" aria-expanded="false" aria-controls="b08" aria-label="Show more"><span class="chev" aria-hidden="true">&#9662;</span></button>
         </article>
 
         <article class="card">
-          <div class="card-head"><span class="card-idx mono"><b>09</b> / 12</span><span class="card-notch" aria-hidden="true"></span></div>
+          <div class="card-head"><span class="card-notch" aria-hidden="true"></span></div>
           <h3 class="card-title">An operations assistant inside the team&rsquo;s chat</h3>
           <div class="card-body" id="b09">
             <p>Set up and running for the same operation, currently supported under supervision. It reads the operational group and turns a day of chat into a twice-daily brief &mdash; what was decided, who owns it, what is still open &mdash; with every item linked back to the message it came from. It is structurally prevented from inventing one. Model output is rejected unless every field matches an allow-listed key set, every cited message is one actually supplied to it, and any assignment of an owner is traceable to text that really named that person. It returns <code>unknown</code> rather than guess. Reviewers rate each decision as correct, incomplete, wrong or unsafe, and approved corrections create a new immutable version of that knowledge rather than overwriting the old one &mdash; so it improves through a reviewed loop with an audit trail, not by drifting.</p>
           </div>
-          <button class="card-toggle" aria-expanded="false" aria-controls="b09"><span><span class="lbl-shut">Turn card</span><span class="lbl-open">Turn back</span></span><span class="chev" aria-hidden="true">&#9662;</span></button>
+          <button class="card-toggle" aria-expanded="false" aria-controls="b09" aria-label="Show more"><span class="chev" aria-hidden="true">&#9662;</span></button>
         </article>
 
         <article class="card">
-          <div class="card-head"><span class="card-idx mono"><b>10</b> / 12</span><span class="card-notch" aria-hidden="true"></span></div>
+          <div class="card-head"><span class="card-notch" aria-hidden="true"></span></div>
           <h3 class="card-title">Building it so it can decide but not act</h3>
           <div class="card-body" id="b10">
             <p>The assistant talks to a real business group, so a wrong or duplicate message is a real-world error rather than a log line. Its decisions are written to a review queue; actual delivery runs through a separate gated path that checks a mute switch first, so nothing the model produces can send itself. Every hop is treated as at-least-once, with unique idempotency keys on both model invocations and outbound messages &mdash; a redelivered job replays the stored result instead of calling the model and billing twice. Ambiguous outcomes become a state a human reconciles, never an automatic resend. Failures dead-letter into an audited path rather than disappearing. And retention is enforced by a scheduled purge that nulls content and strips actor identifiers on a clock, leaving a tombstone recording that something was removed without retaining what.</p>
           </div>
-          <button class="card-toggle" aria-expanded="false" aria-controls="b10"><span><span class="lbl-shut">Turn card</span><span class="lbl-open">Turn back</span></span><span class="chev" aria-hidden="true">&#9662;</span></button>
+          <button class="card-toggle" aria-expanded="false" aria-controls="b10" aria-label="Show more"><span class="chev" aria-hidden="true">&#9662;</span></button>
         </article>
 
         <article class="card">
-          <div class="card-head"><span class="card-idx mono"><b>11</b> / 12</span><span class="card-notch" aria-hidden="true"></span></div>
+          <div class="card-head"><span class="card-notch" aria-hidden="true"></span></div>
           <h3 class="card-title">The same system, twice, on two very different runtimes</h3>
           <div class="card-body" id="b11">
             <p>It runs on an edge platform &mdash; serverless workers, a strongly-consistent coordination object used as the deduplication gate, a managed queue with a dead-letter path, SQLite at the edge. It also runs as a self-hosted build on a plain VPS: the same domain model on PostgreSQL behind a reverse proxy with automatic TLS, in containers that are read-only with all capabilities dropped. Without a managed queue, that build claims work with row-level locking that skips locked rows, and serialises the daily model-spend check behind an advisory lock so two workers cannot both pass a stale count and overshoot the cap. Portability was the point: the same product, not tied to one vendor.</p>
           </div>
-          <button class="card-toggle" aria-expanded="false" aria-controls="b11"><span><span class="lbl-shut">Turn card</span><span class="lbl-open">Turn back</span></span><span class="chev" aria-hidden="true">&#9662;</span></button>
+          <button class="card-toggle" aria-expanded="false" aria-controls="b11" aria-label="Show more"><span class="chev" aria-hidden="true">&#9662;</span></button>
         </article>
 
         <article class="card">
-          <div class="card-head"><span class="card-idx mono"><b>12</b> / 12</span><span class="card-notch" aria-hidden="true"></span></div>
+          <div class="card-head"><span class="card-notch" aria-hidden="true"></span></div>
           <h3 class="card-title">Finding the mail failure that only hit some recipients</h3>
           <div class="card-body" id="b12">
             <p>Business mail from a live domain was landing in spam for some recipients and arriving cleanly for others &mdash; the pattern that makes a mail problem hard to pin down. The cause was an SPF record making twelve DNS lookups against RFC 7208&rsquo;s hard limit of ten, producing a permanent error that strict validators read as no authentication at all, while lenient ones short-circuited on the first match and let the mail through. Fixing it meant first establishing that DNS was not actually being served where the registrar&rsquo;s own control panel implied it was. The rebuilt record sits at seven lookups of ten, with headroom left deliberately.</p>
           </div>
-          <button class="card-toggle" aria-expanded="false" aria-controls="b12"><span><span class="lbl-shut">Turn card</span><span class="lbl-open">Turn back</span></span><span class="chev" aria-hidden="true">&#9662;</span></button>
+          <button class="card-toggle" aria-expanded="false" aria-controls="b12" aria-label="Show more"><span class="chev" aria-hidden="true">&#9662;</span></button>
         </article>
 
       </div>
@@ -766,7 +758,7 @@ footer .sep{color:var(--ink-meta);padding:0 6px;}
     <!-- ============================ DECK TWO ============================ -->
     <section class="deck-section" aria-labelledby="deck-two-h">
       <div class="deck-head">
-        <div class="label"><span>Illustrative</span><span class="count">3 cards</span></div>
+        <div class="label"><span>Illustrative</span></div>
         <h2 id="deck-two-h">How the method would apply</h2>
         <p>Below are three worked scenarios, not engagements. They show how a QuietStaff engagement would run for a UK SMB &mdash; discovery through to live &mdash; in three sectors.</p>
       </div>
@@ -875,6 +867,7 @@ footer .sep{color:var(--ink-meta);padding:0 6px;}
       var card = b.closest('.card');
       var open = b.getAttribute('aria-expanded') === 'true';
       b.setAttribute('aria-expanded', String(!open));
+      b.setAttribute('aria-label', open ? 'Show more' : 'Show less');
       card.classList.toggle('is-open', !open);
     });
   });
