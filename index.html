@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark light">
-    <!-- TODO: Add cookie consent UI before enabling any analytics / third-party tracking (UK GDPR / PECR) -->
     <title>QuietStaff — Managed AI Workforce for UK Businesses</title>
 
     <!-- Theme: read preference before paint (prevents flash of unstyled theme) -->
@@ -1169,18 +1168,6 @@ footer {
 .footer-column a:hover {
             color: var(--accent-primary);
         }
-.footer-link-soon {
-            display: block;
-            font-size: 0.9rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-secondary);
-            opacity: 0.5;
-            cursor: default;
-        }
-.footer-link-soon em {
-            font-size: 0.75rem;
-            opacity: 0.7;
-        }
 .footer-bottom {
             max-width: 1280px;
             margin: 0 auto;
@@ -1588,6 +1575,20 @@ footer {
             font-size: 1.8rem;
             color: #22c55e;
         }
+.form-error {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.85rem 1rem;
+            border: 1px solid #ef4444;
+            border-left-width: 3px;
+            border-radius: 8px;
+            background: rgba(239, 68, 68, 0.08);
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+.form-error.active { display: block; }
+.form-error a { color: var(--accent-primary); }
 @media (max-width: 375px) {
             h1 { font-size: 1.6rem !important; }
             h2 { font-size: 1.3rem !important; }
@@ -2587,17 +2588,18 @@ footer {
                     <div class="score-badge-note">Illustrative example &mdash; not a live reading</div>
                 </div>
 
-                <p class="stage-terms">Scored across 3&ndash;5 working sessions with your team. Delivered as a branded report with quantified opportunities and a 90-day roadmap. Fixed fee &mdash; talk to us to scope the engagement. Fee credited against your first build.</p>
+                <p class="stage-terms"><strong>Free.</strong> One working session with your team, then your score and your three highest-value gaps come back in writing within five working days. No fee, no commitment, and you keep the report whether or not you go further.</p>
             </div>
 
-            <!-- STAGE 2 — Delivery Plan -->
+            <!-- STAGE 2 — Blueprint -->
             <div class="stage-block">
                 <div class="stage-header">
                     <span class="stage-tag">STAGE 2</span>
-                    <h3>Delivery Plan</h3>
+                    <h3>The Blueprint</h3>
                 </div>
-                <p class="stage-body">Your AI Score tells us where the biggest opportunity is. We turn that into a delivery plan &mdash; prioritised roadmap, effort estimates, fixed-scope SOW, and a clear picture of what gets built and when.</p>
+                <p class="stage-body">Your AI Score says where the biggest opportunity is. The Blueprint turns it into something you can act on &mdash; prioritised roadmap, effort estimates, fixed-scope SOW, and a clear picture of what gets built and when.</p>
                 <p class="stage-body"><strong>No generic templates.</strong> Built on your actual score. You approve before we touch a line of code.</p>
+                <p class="stage-terms"><strong>&pound;3,000, fixed.</strong> Not an estimate and not a range &mdash; that is the price. Credited back in full against your build if you go on to Stage 3, so it costs you nothing to find out whether it is worth building.</p>
             </div>
 
             <!-- STAGE 3 — Custom Build -->
@@ -2716,9 +2718,9 @@ footer {
     <!-- The AI We Build Section -->
     <section id="agents">
         <div class="container">
-            <p class="section-eyebrow">The AI We&rsquo;re Building for Clients</p>
+            <p class="section-eyebrow">The AI We Build</p>
             <h2 style="text-align: center; margin-bottom: 1rem;">Specialist AI for Specialist Work</h2>
-            <p style="text-align:center; color:var(--text-secondary); max-width:680px; margin:0 auto 3rem;">These are the agent patterns we repeatedly build. Each one is trained on your domain, your data, your workflows — and deployed inside your existing tools. Every engagement is still bespoke. This is what the library looks like today.</p>
+            <p style="text-align:center; color:var(--text-secondary); max-width:680px; margin:0 auto 3rem;">These are the agent patterns we build from. Each one is designed to be trained on your domain, your data and your workflows, then deployed inside the tools you already use. Every engagement is still bespoke. This is what the library looks like today.</p>
 
             <div class="agents-grid">
                 <div class="agent-card fade-in">
@@ -2748,7 +2750,7 @@ footer {
                     </div>
                     <div class="agent-role">Operations</div>
                     <p class="agent-description">Task dispatch, scheduling, follow-ups, and workflow orchestration. Replaces the admin layer that quietly swallows hours every week.</p>
-                    <p class="agent-deploy">&#8627; Deployed in dispatch, scheduling, and ops teams.</p>
+                    <p class="agent-deploy">&#8627; Designed for dispatch, scheduling, and ops teams.</p>
                 </div>
 
                 <div class="agent-card fade-in">
@@ -2758,7 +2760,7 @@ footer {
                     </div>
                     <div class="agent-role">Sales</div>
                     <p class="agent-description">Lead follow-ups, pipeline updates, CRM hygiene, and first-touch qualification. Keeps your sales team focused on closing, not chasing.</p>
-                    <p class="agent-deploy">&#8627; Deployed in sales &amp; business development teams.</p>
+                    <p class="agent-deploy">&#8627; Designed for sales &amp; business development teams.</p>
                 </div>
 
                 <div class="agent-card fade-in">
@@ -2768,7 +2770,7 @@ footer {
                     </div>
                     <div class="agent-role">Finance</div>
                     <p class="agent-description">Invoice processing, expense categorisation, reconciliation, and reporting. Quietly keeps the books tidy and the month-end fast.</p>
-                    <p class="agent-deploy">&#8627; Deployed in accountancy practices &amp; finance functions.</p>
+                    <p class="agent-deploy">&#8627; Designed for accountancy practices &amp; finance functions.</p>
                 </div>
 
                 <div class="agent-card fade-in">
@@ -2778,7 +2780,7 @@ footer {
                     </div>
                     <div class="agent-role">Customer Service</div>
                     <p class="agent-description">24/7 multi-lingual support with sentiment routing, escalation, and resolution tracking. Real answers, not scripted deflections.</p>
-                    <p class="agent-deploy">&#8627; Deployed in retail, healthcare, and service businesses.</p>
+                    <p class="agent-deploy">&#8627; Designed for retail, healthcare, and service businesses.</p>
                 </div>
 
                 <div class="agent-card fade-in">
@@ -2788,7 +2790,7 @@ footer {
                     </div>
                     <div class="agent-role">Reputation &amp; HR</div>
                     <p class="agent-description">Brand monitoring, reputation alerts, and HR-side workflows: policy queries, onboarding, internal-help routing.</p>
-                    <p class="agent-deploy">&#8627; Deployed in marketing, HR, and compliance teams.</p>
+                    <p class="agent-deploy">&#8627; Designed for marketing, HR, and compliance teams.</p>
                 </div>
 
                 <div class="agent-card cta-card fade-in">
@@ -2861,67 +2863,67 @@ footer {
     <section id="pricing">
         <div class="container">
             <p class="section-eyebrow">How We Work Together</p>
-            <h2 style="text-align: center; margin-bottom: 1rem;">Fixed-fee Assessment. Build + Managed Retainer. Enterprise.</h2>
-            <p style="text-align: center; color: var(--text-secondary); max-width: 680px; margin: 0 auto 3rem;">Every engagement starts the same way &mdash; with an AI Score. Then we build. Then we run it. All three stages are scoped, priced, and outcome-focused. Prices on application.</p>
+            <h2 style="text-align: center; margin-bottom: 1rem;">Free to find out. &pound;3,000 to plan it. Then we build and run it.</h2>
+            <p style="text-align: center; color: var(--text-secondary); max-width: 680px; margin: 0 auto 3rem;">Three steps, in order, and you can stop after any of them. The first costs nothing. The second is a fixed &pound;3,000 that comes back off your build. Only the third is a real commitment.</p>
 
             <div class="pricing-grid-v3">
                 <div class="pricing-card-v3 fade-in">
                     <div class="pc-tier">Stage 1</div>
-                    <h3>Assessment</h3>
-                    <p class="pc-desc">A fixed-fee AI Readiness Assessment. We score your operation, identify your highest-impact opportunities, and deliver a 90-day roadmap.</p>
+                    <h3>Your AI Score</h3>
+                    <p class="pc-desc">We score your operation on two dimensions and name the three places AI would pay back fastest. One working session; written back within five working days.</p>
                     <ul class="pc-list">
                         <li>Automation Score (1&ndash;10)</li>
                         <li>AI Usage Score (1&ndash;10)</li>
                         <li>Top 3 opportunities, quantified</li>
-                        <li>90-day delivery roadmap</li>
-                        <li>Fixed scope. Fixed price.</li>
+                        <li>Yours to keep either way</li>
+                        <li>No commitment to go further</li>
                     </ul>
-                    <div class="pc-price">Fixed fee &middot; POA</div>
-                    <a href="#cta" onclick="openContactModal('score'); return false;" class="btn btn-outline" style="width:100%;text-decoration:none;text-align:center;">Start With Your AI Score &rarr;</a>
+                    <div class="pc-price">Free</div>
+                    <a href="#cta" onclick="openContactModal('score'); return false;" class="btn btn-outline" style="width:100%;text-decoration:none;text-align:center;">Get your free AI Score &rarr;</a>
                 </div>
 
                 <div class="pricing-card-v3 featured fade-in">
-                    <div class="pc-badge">MOST COMMON</div>
-                    <div class="stage-stepper" aria-label="Covers Stages 2 through 4">
+                    <div class="pc-badge">START HERE IF YOU'RE SERIOUS</div>
+                    <div class="stage-stepper" aria-label="Covers Stage 2">
                         <span class="stage-step muted">1</span>
                         <span class="stage-connector"></span>
                         <span class="stage-step active">2</span>
-                        <span class="stage-connector active"></span>
-                        <span class="stage-step active">3</span>
-                        <span class="stage-connector active"></span>
-                        <span class="stage-step active">4</span>
-                        <span class="stage-step-label">Stages 2&ndash;4</span>
+                        <span class="stage-connector"></span>
+                        <span class="stage-step muted">3</span>
+                        <span class="stage-connector"></span>
+                        <span class="stage-step muted">4</span>
+                        <span class="stage-step-label">Stage 2</span>
                     </div>
-                    <h3>Build + Managed Retainer</h3>
-                    <p class="pc-desc">We build the custom AI to your workflows, deploy it into your stack, and run it on a managed retainer. No internal AI team required.</p>
+                    <h3>The Blueprint</h3>
+                    <p class="pc-desc">A costed, sequenced plan for the work worth doing &mdash; what gets built, in what order, by when, and what it will take. Yours to build with us, in-house, or not at all.</p>
                     <ul class="pc-list">
-                        <li>Delivery Plan (sprint-by-sprint)</li>
-                        <li>Custom AI build &amp; deployment</li>
-                        <li>GDPR / DPA compliance baked in</li>
-                        <li>Managed retainer: monitoring, drift, evolution</li>
-                        <li>Monthly review &amp; roadmap</li>
+                        <li>Prioritised roadmap, sprint by sprint</li>
+                        <li>Effort estimates and fixed-scope SOW</li>
+                        <li>Integration and data-handling plan</li>
+                        <li>GDPR / DPA position stated up front</li>
+                        <li>Credited back in full against your build</li>
                     </ul>
-                    <div class="pc-price">Build (one-off) + monthly retainer &middot; POA</div>
-                    <a href="#cta" onclick="openContactModal('build-retainer'); return false;" class="btn btn-primary" style="width:100%;text-decoration:none;text-align:center;">Talk to Us &rarr;</a>
+                    <div class="pc-price">&pound;3,000 &middot; fixed</div>
+                    <a href="#cta" onclick="openContactModal('blueprint'); return false;" class="btn btn-primary" style="width:100%;text-decoration:none;text-align:center;">Get your free AI Score &rarr;</a>
                 </div>
 
                 <div class="pricing-card-v3 fade-in">
-                    <div class="pc-tier">Enterprise</div>
-                    <h3>Enterprise</h3>
-                    <p class="pc-desc">For mid-market and regulated enterprises. Multi-workflow AI programmes, data residency guarantees, SLA-backed managed service, tender-ready.</p>
+                    <div class="pc-tier">Stages 3&ndash;4</div>
+                    <h3>The Programme</h3>
+                    <p class="pc-desc">We build what the Blueprint specified, put it into your stack, and run it on a monthly retainer. Priced from the Blueprint, so you see the number before you commit to it.</p>
                     <ul class="pc-list">
-                        <li>Multi-workflow AI programme</li>
+                        <li>Custom AI build &amp; deployment</li>
+                        <li>Managed retainer: monitoring, drift, evolution</li>
                         <li>UK / EU data residency</li>
-                        <li>SSO, SAML, RBAC</li>
-                        <li>SLA-backed managed service</li>
-                        <li>Cyber Essentials + tender-ready</li>
+                        <li>SSO, SAML, RBAC where you need them</li>
+                        <li>Cyber Essentials: in progress</li>
                     </ul>
-                    <div class="pc-price">Custom engagement &middot; POA</div>
-                    <a href="#cta" onclick="openContactModal('enterprise'); return false;" class="btn btn-outline" style="width:100%;text-decoration:none;text-align:center;">Request Enterprise Brief &rarr;</a>
+                    <div class="pc-price">Build + monthly retainer &middot; quoted in the Blueprint</div>
+                    <a href="#cta" onclick="openContactModal('programme'); return false;" class="btn btn-outline" style="width:100%;text-decoration:none;text-align:center;">Talk to us about a Programme &rarr;</a>
                 </div>
             </div>
 
-            <p class="pricing-note-v3">All engagements priced on application. We don&rsquo;t publish rates because the work is bespoke &mdash; but every proposal is fixed-scope, fixed-fee, with clear deliverables.</p>
+            <p class="pricing-note-v3">The Score is free and the Blueprint is &pound;3,000 whoever you are. Build and retainer figures are quoted in the Blueprint itself, before you have committed to anything &mdash; fixed-scope, fixed-fee, 30-day cancel notice on the retainer, no annual lock-in.</p>
         </div>
     </section>
 
@@ -2954,7 +2956,7 @@ footer {
             <div class="about-cta-row">
                 <a href="founder/" class="btn btn-outline" style="text-decoration:none;">Meet the Founder &rarr;</a>
                 <a href="#cta" onclick="openContactModal('general')" class="btn btn-outline" style="text-decoration:none;">Email Us &rarr;</a>
-                <a href="#" class="btn btn-outline" style="text-decoration:none;" aria-label="LinkedIn company page (coming soon)">LinkedIn &rarr;</a>
+                <a href="https://www.linkedin.com/in/mohan-technical-leadership/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="text-decoration:none;" aria-label="Founder profile on LinkedIn">LinkedIn &rarr;</a>
             </div>
         </div>
     </section>
@@ -2996,15 +2998,12 @@ footer {
                 <a href="founder/">Founder</a>
                 <a href="case-studies/">Work</a>
                 <a href="mailto:contact@quietstaff.com">Contact</a>
-                <a href="#" aria-label="LinkedIn company page (coming soon)">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/mohan-technical-leadership/" target="_blank" rel="noopener noreferrer" aria-label="Founder profile on LinkedIn">LinkedIn</a>
             </div>
             <div class="footer-column">
                 <h4>Legal</h4>
                 <a href="privacy/">Privacy Policy</a>
                 <a href="sub-processors/">Sub-processors</a>
-                <span class="footer-link-soon">Terms of Service <em>(coming soon)</em></span>
-                <span class="footer-link-soon">Security <em>(coming soon)</em></span>
-                <span class="footer-link-soon">Compliance <em>(coming soon)</em></span>
             </div>
         </div>
         <div class="footer-bottom">
@@ -3217,41 +3216,51 @@ footer {
         }
 
         // ─── Modal Logic ────────────────────────────────────────
+        // Contact endpoint. Cloudflare Worker; source is kept OUT of this repo
+        // (it is public and Pages-served) at repos/quietstaff-contact-worker.
+        const QS_CONTACT_ENDPOINT = 'https://quietstaff-contact.weathered-dust-84ba.workers.dev';
+
         function setupContactModal() {
             const overlay = document.getElementById('contactModal');
             if (!overlay) return;
             const closeBtn = document.getElementById('modalClose');
             const contextEl = document.getElementById('modalContext');
-            const subjectEl = document.getElementById('formSubject');
             const inquiryEl = document.getElementById('formInquiry');
             const formEl = document.getElementById('qsForm');
             const formDiv = document.getElementById('contactForm');
             const successDiv = document.getElementById('formSuccess');
-            const selectEl = formEl.querySelector('select[name="Interest"]');
+            const errorDiv = document.getElementById('formError');
+            const errorMsgEl = document.getElementById('formErrorMsg');
+            const submitBtn = formEl.querySelector('.form-submit');
+            const selectEl = formEl.querySelector('select[name="interest"]');
+            let currentSubject = 'General Inquiry - QuietStaff';
 
             const contextMap = {
                 'score': { label: 'Get Your QuietStaff AI Score', subject: 'AI Score Request - QuietStaff', interest: 'AI Readiness Assessment' },
                 'call': { label: 'Schedule a Call', subject: 'Schedule a Call - QuietStaff', interest: 'General' },
                 'general': { label: 'Get in Touch', subject: 'General Inquiry - QuietStaff', interest: 'General' },
                 'assessment': { label: 'AI Readiness Assessment', subject: 'Assessment Inquiry - QuietStaff', interest: 'AI Readiness Assessment' },
-                'build-retainer': { label: 'Build + Managed Retainer', subject: 'Build + Retainer Inquiry - QuietStaff', interest: 'Build + Retainer' },
-                'enterprise': { label: 'Enterprise Engagement', subject: 'Enterprise Inquiry - QuietStaff', interest: 'Enterprise' },
+                'blueprint': { label: 'Start With Your Free AI Score', subject: 'Blueprint Enquiry - QuietStaff', interest: 'Blueprint' },
+                'programme': { label: 'Talk About a Programme', subject: 'Programme Enquiry - QuietStaff', interest: 'Programme' },
+                'build-retainer': { label: 'Talk About a Programme', subject: 'Programme Enquiry - QuietStaff', interest: 'Programme' },
+                'enterprise': { label: 'Talk About a Programme', subject: 'Programme Enquiry - QuietStaff', interest: 'Programme' },
                 // Legacy compatibility
                 'demo': { label: 'Get Your QuietStaff AI Score', subject: 'AI Score Request - QuietStaff', interest: 'AI Readiness Assessment' },
                 'diagnostic': { label: 'AI Readiness Assessment', subject: 'Assessment Inquiry - QuietStaff', interest: 'AI Readiness Assessment' },
-                'implementation': { label: 'Build + Managed Retainer', subject: 'Build + Retainer Inquiry - QuietStaff', interest: 'Build + Retainer' },
-                'retainer': { label: 'Build + Managed Retainer', subject: 'Build + Retainer Inquiry - QuietStaff', interest: 'Build + Retainer' },
-                'custom': { label: 'Build + Managed Retainer', subject: 'Build + Retainer Inquiry - QuietStaff', interest: 'Build + Retainer' },
+                'implementation': { label: 'Talk About a Programme', subject: 'Programme Enquiry - QuietStaff', interest: 'Programme' },
+                'retainer': { label: 'Talk About a Programme', subject: 'Programme Enquiry - QuietStaff', interest: 'Programme' },
+                'custom': { label: 'Talk About a Programme', subject: 'Programme Enquiry - QuietStaff', interest: 'Programme' },
             };
 
             window.openContactModal = function(type) {
                 const ctx = contextMap[type] || contextMap['demo'];
-                contextEl.textContent = ctx.label;
-                subjectEl.value = ctx.subject;
-                inquiryEl.value = ctx.interest;
-                selectEl.value = ctx.interest;
+                currentSubject = ctx.subject;
+                if (contextEl) contextEl.textContent = ctx.label;
+                if (inquiryEl) inquiryEl.value = ctx.interest;
+                if (selectEl) selectEl.value = ctx.interest;
                 formDiv.style.display = 'block';
                 successDiv.classList.remove('active');
+                if (errorDiv) errorDiv.classList.remove('active');
                 overlay.classList.add('active');
                 overlay.setAttribute('aria-hidden', 'false');
                 document.body.style.overflow = 'hidden';
@@ -3271,25 +3280,49 @@ footer {
                 if (e.key === 'Escape') closeModal();
             });
 
-            // Handle form submit
+            // Handle form submit — single path, real endpoint, no fake success
             formEl.addEventListener('submit', function(e) {
                 e.preventDefault();
-                const formData = new FormData(formEl);
+                if (errorDiv) errorDiv.classList.remove('active');
 
-                fetch(formEl.action, {
+                const fd = new FormData(formEl);
+                const payload = {
+                    name: (fd.get('name') || '').toString().trim(),
+                    email: (fd.get('email') || '').toString().trim(),
+                    company: (fd.get('company') || '').toString().trim(),
+                    subject: currentSubject,
+                    message: (fd.get('message') || '').toString().trim(),
+                    source: (fd.get('interest') || '').toString().trim(),
+                    website: (fd.get('_honey') || '').toString().trim()
+                };
+
+                const originalLabel = submitBtn ? submitBtn.textContent : '';
+                if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+
+                function showError(msg) {
+                    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
+                    if (errorMsgEl) errorMsgEl.textContent = msg;
+                    if (errorDiv) errorDiv.classList.add('active');
+                }
+
+                fetch(QS_CONTACT_ENDPOINT, {
                     method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(payload)
                 }).then(function(res) {
-                    if (res.ok) {
+                    return res.json().catch(function() { return { ok: res.ok }; })
+                        .then(function(data) { return { res: res, data: data }; });
+                }).then(function(r) {
+                    if (r.res.ok && r.data && r.data.ok) {
+                        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
                         formDiv.style.display = 'none';
                         successDiv.classList.add('active');
                         formEl.reset();
+                    } else {
+                        showError((r.data && r.data.error) || 'Something went wrong at our end.');
                     }
                 }).catch(function() {
-                    formDiv.style.display = 'none';
-                    successDiv.classList.add('active');
-                    formEl.reset();
+                    showError('We could not reach our server \u2014 check your connection and try again.');
                 });
             });
         }
@@ -3336,7 +3369,7 @@ footer {
                 <h3 id="modalTitle">Get in Touch</h3>
                 <div class="modal-context" id="modalContext">Request a Demo</div>
 
-                <form id="qsForm" onsubmit="return sendViaMailto(event)">
+                <form id="qsForm" novalidate>
                     <input type="hidden" name="_honey" id="qs-honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
                     <input type="hidden" id="formInquiry" value="Demo Request">
 
@@ -3358,10 +3391,10 @@ footer {
                     <div class="form-group">
                         <label for="qs-interest">What are you looking for?</label>
                         <select id="qs-interest" name="interest">
-                            <option value="AI Readiness Assessment">AI Readiness Assessment (Starting Point)</option>
-                            <option value="Build + Retainer">Build + Managed Retainer</option>
-                            <option value="Enterprise">Enterprise Engagement</option>
-                            <option value="General">General Enquiry</option>
+                            <option value="AI Readiness Assessment">Free AI Score (starting point)</option>
+                            <option value="Blueprint">Blueprint (&pound;3,000 fixed)</option>
+                            <option value="Programme">Programme &mdash; build + managed retainer</option>
+                            <option value="General">General enquiry</option>
                         </select>
                     </div>
 
@@ -3370,59 +3403,22 @@ footer {
                         <textarea id="qs-message" name="message" placeholder="Tell us about your use case, team size, or any questions..."></textarea>
                     </div>
 
-                    <button type="submit" class="form-submit">Open email client &rarr;</button>
+                    <button type="submit" class="form-submit">Send message &rarr;</button>
+
+                    <div class="form-error" id="formError" role="alert" aria-live="assertive">
+                        <strong>That didn&rsquo;t send.</strong>
+                        <span id="formErrorMsg"></span>
+                        Please email us directly at <a href="mailto:contact@quietstaff.com">contact@quietstaff.com</a>.
+                    </div>
                 </form>
 
-                <script>
-                function sendViaMailto(event) {
-                    event.preventDefault();
-                    if (document.getElementById('qs-honey').value) return false;
-
-                    var name = document.getElementById('qs-name').value;
-                    var email = document.getElementById('qs-email').value;
-                    var company = document.getElementById('qs-company').value;
-                    var interest = document.getElementById('qs-interest').value;
-                    var message = document.getElementById('qs-message').value;
-
-                    var subject = 'QuietStaff enquiry — ' + interest + ' — ' + name;
-                    var body = [
-                        'Hi QuietStaff,',
-                        '',
-                        'I would like to enquire about: ' + interest,
-                        '',
-                        '— My details —',
-                        'Name: ' + name,
-                        'Email: ' + email,
-                        'Company: ' + (company || '(not provided)'),
-                        '',
-                        '— Message —',
-                        message || '(no additional message)',
-                        '',
-                        '— Sent from the contact form on quietstaff.com —'
-                    ].join('\n');
-
-                    var mailto = 'mailto:contact@quietstaff.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-                    window.location.href = mailto;
-
-                    setTimeout(function() {
-                        var cf = document.getElementById('contactForm');
-                        var fs = document.getElementById('formSuccess');
-                        if (cf && fs) {
-                            cf.style.display = 'none';
-                            fs.style.display = 'block';
-                        }
-                    }, 400);
-
-                    return false;
-                }
-                </script>
             </div>
 
             <!-- Success state -->
             <div class="form-success" id="formSuccess">
                 <div class="check-icon">&check;</div>
-                <h3>Email client opened</h3>
-                <p style="color:var(--text-secondary); margin-top:0.75rem;">We've opened your email client with your enquiry prepared. Please review and hit <strong>Send</strong> to reach us. If nothing opened, email us directly at <a href="mailto:contact@quietstaff.com" style="color:var(--accent-primary)">contact@quietstaff.com</a>.</p>
+                <h3>Message sent</h3>
+                <p style="color:var(--text-secondary); margin-top:0.75rem;">Thanks &mdash; that reached us. You&rsquo;ll get a reply from a human within one working day. If it&rsquo;s urgent, email <a href="mailto:contact@quietstaff.com" style="color:var(--accent-primary)">contact@quietstaff.com</a> directly.</p>
             </div>
         </div>
     </div>
