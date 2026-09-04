@@ -2311,6 +2311,53 @@ footer {
             .pricing-card-v3 { padding: 1.5rem 1.25rem; }
             .industry-card { padding: 1.25rem; }
         }
+
+        /* FAQ */
+        .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.75rem; }
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .faq-item summary {
+            cursor: pointer;
+            list-style: none;
+            padding: 1.15rem 3rem 1.15rem 1.35rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            position: relative;
+            line-height: 1.45;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: "";
+            position: absolute;
+            right: 1.35rem;
+            top: 1.45rem;
+            width: 9px; height: 9px;
+            border-right: 2px solid var(--accent-primary);
+            border-bottom: 2px solid var(--accent-primary);
+            transform: rotate(45deg);
+            transition: transform 0.2s ease;
+        }
+        .faq-item[open] summary::after { transform: rotate(-135deg); top: 1.7rem; }
+        .faq-item summary:hover { color: var(--accent-primary); }
+        .faq-item summary:focus-visible { outline: 2px solid var(--accent-primary); outline-offset: -2px; }
+        .faq-answer { padding: 0 1.35rem 1.25rem; color: var(--text-secondary); line-height: 1.65; }
+        .faq-answer p { margin: 0 0 0.75rem; }
+        .faq-answer p:last-child { margin-bottom: 0; }
+        .faq-answer a { color: var(--accent-primary); }
+        .cta-fineprint {
+            margin: 0.85rem 0 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        @media (max-width: 640px) {
+            .faq-item summary { padding: 1rem 2.5rem 1rem 1.1rem; }
+            .faq-answer { padding: 0 1.1rem 1.1rem; }
+        }
 </style>
 </head>
 <body>
@@ -2357,14 +2404,14 @@ footer {
                 <a href="case-studies/">Work</a>
                 <a href="#about">About</a>
                 <!-- CTA shown only inside mobile overlay -->
-                <a href="#cta" onclick="openContactModal('score'); return false;" class="mobile-only mobile-cta-btn" style="text-decoration:none;">Get Your AI Score &rarr;</a>
+                <a href="#cta" onclick="openContactModal('score'); return false;" class="mobile-only mobile-cta-btn" style="text-decoration:none;">Get your free AI Score &rarr;</a>
             </div>
             <div class="nav-right">
                 <button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme" title="Toggle theme">
                     <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
                     <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
                 </button>
-                <a href="#cta" onclick="openContactModal('score'); return false;" class="nav-button" style="text-decoration:none;">Get Your AI Score &rarr;</a>
+                <a href="#cta" onclick="openContactModal('score'); return false;" class="nav-button" style="text-decoration:none;">Get your free AI Score &rarr;</a>
             </div>
             <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span></span>
@@ -2385,10 +2432,10 @@ footer {
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">Managed AI Workforce for UK SMBs</div>
-                <h1><span class="text-gradient">The Complete Implementation Lifecycle</span><br>for Your Business</h1>
-                <p class="hero-subheadline">We score your AI readiness, plan the delivery, build it to spec, and run it for you. Discovery through support, fully managed. No internal AI team required.</p>
+                <h1><span class="text-gradient">Know exactly where AI pays back</span><br>in your business. Before you spend a pound finding out.</h1>
+                <p class="hero-subheadline">Start with a free AI Score: we score your operation and name the three places AI would pay back fastest, with the numbers behind them. Turn it into a delivery plan for a fixed &pound;3,000 &mdash; credited back in full if we build it.</p>
                 <div class="hero-buttons">
-                    <a href="#cta" onclick="openContactModal('score'); return false;" class="btn btn-primary" style="text-decoration:none;">Get Your QuietStaff AI Score &rarr;</a>
+                    <a href="#cta" onclick="openContactModal('score'); return false;" class="btn btn-primary" style="text-decoration:none;">Get your free AI Score &rarr;</a>
                     <a href="#how" class="btn btn-outline" style="text-decoration:none;">See How We Work &darr;</a>
                 </div>
 
@@ -2625,8 +2672,7 @@ footer {
             <div class="stage-cta-row">
                 <p class="stage-cta-tagline">&ldquo;Start with your AI Score. Know exactly where you stand before spending a pound on building anything.&rdquo;</p>
                 <div class="stage-cta-buttons">
-                    <a href="#cta" onclick="openContactModal('score'); return false;" class="btn btn-primary" style="text-decoration:none;">Get Your AI Score &rarr;</a>
-                    <a href="#cta" onclick="openContactModal('call'); return false;" class="btn btn-outline" style="text-decoration:none;">Book a Discovery Call &rarr;</a>
+                    <a href="#cta" onclick="openContactModal('score'); return false;" class="btn btn-primary" style="text-decoration:none;">Get your free AI Score &rarr;</a>
                 </div>
             </div>
         </div>
@@ -2796,7 +2842,7 @@ footer {
                 <div class="agent-card cta-card fade-in">
                     <h3>Quiet[You]</h3>
                     <p>Your workflow. Your domain. Your specialist AI — built, deployed, and managed by us.</p>
-                    <a href="#cta" onclick="openContactModal('score'); return false;" class="btn btn-primary" style="width:100%;text-decoration:none;text-align:center;">Start With Your AI Score &rarr;</a>
+                    <a href="#cta" onclick="openContactModal('score'); return false;" class="btn btn-primary" style="width:100%;text-decoration:none;text-align:center;">Get your free AI Score &rarr;</a>
                 </div>
             </div>
         </div>
@@ -2845,14 +2891,15 @@ footer {
             <div class="founding-offer">
                 <div class="founding-offer-badge">Early Phase Partners &middot; Limited Capacity</div>
                 <h3>Early-Phase Partner Pricing</h3>
-                <p>We&rsquo;re onboarding a small number of early-phase partners while we shape the playbook. In exchange for a reference engagement, you get a significant discount on assessment and build.</p>
+                <p>We&rsquo;re onboarding a small number of early-phase partners while we shape the playbook. The AI Score is free for everyone; what a partner gets is a discount on the Blueprint and the build, in exchange for being a reference engagement we can name.</p>
                 <div class="founding-offer-bullets">
-                    <div class="fo-item">&#x2713; Full Automation + AI Usage Score</div>
-                    <div class="fo-item">&#x2713; 3 highest-impact AI opportunities identified</div>
-                    <div class="fo-item">&#x2713; 90-day delivery roadmap</div>
-                    <div class="fo-item">&#x2713; Discounted build + retainer rates</div>
+                    <div class="fo-item">&#x2713; Discounted Blueprint and build rates</div>
+                    <div class="fo-item">&#x2713; Reference engagement, agreed in writing first</div>
+                    <div class="fo-item">&#x2713; Direct access to the founding architect</div>
+                    <div class="fo-item">&#x2713; Same free AI Score first, either way</div>
                 </div>
-                <a href="#cta" onclick="openContactModal('score'); return false;" class="btn btn-primary" style="text-decoration:none;">Apply as an Early-Phase Partner &rarr;</a>
+                <a href="#cta" onclick="openContactModal('score'); return false;" class="btn btn-primary" style="text-decoration:none;">Get your free AI Score &rarr;</a>
+                <p class="cta-fineprint">Partner terms are agreed at the Blueprint stage, not before. Start with the Score like everyone else.</p>
             </div>
         </div>
     </section>
@@ -2919,7 +2966,7 @@ footer {
                         <li>Cyber Essentials: in progress</li>
                     </ul>
                     <div class="pc-price">Build + monthly retainer &middot; quoted in the Blueprint</div>
-                    <a href="#cta" onclick="openContactModal('programme'); return false;" class="btn btn-outline" style="width:100%;text-decoration:none;text-align:center;">Talk to us about a Programme &rarr;</a>
+                    <a href="#cta" onclick="openContactModal('score'); return false;" class="btn btn-outline" style="width:100%;text-decoration:none;text-align:center;">Get your free AI Score &rarr;</a>
                 </div>
             </div>
 
@@ -2955,7 +3002,6 @@ footer {
 
             <div class="about-cta-row">
                 <a href="founder/" class="btn btn-outline" style="text-decoration:none;">Meet the Founder &rarr;</a>
-                <a href="#cta" onclick="openContactModal('general')" class="btn btn-outline" style="text-decoration:none;">Email Us &rarr;</a>
                 <a href="https://www.linkedin.com/in/mohan-technical-leadership/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="text-decoration:none;" aria-label="Founder profile on LinkedIn">LinkedIn &rarr;</a>
             </div>
         </div>
@@ -2963,14 +3009,74 @@ footer {
 
     <div class="gradient-bar"></div>
 
+    <div class="gradient-bar"></div>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="container">
+            <p class="section-eyebrow">Before You Ask</p>
+            <h2 style="text-align: center; margin-bottom: 1rem;">The six questions we get asked first</h2>
+            <p style="text-align: center; color: var(--text-secondary); max-width: 680px; margin: 0 auto 2.5rem;">Straight answers, including the uncomfortable one at the bottom.</p>
+
+            <div class="faq-list">
+                <details class="faq-item">
+                    <summary>We already use ChatGPT. Isn&rsquo;t that enough?</summary>
+                    <div class="faq-answer">
+                        <p>For drafting, summarising and research &mdash; often yes. If that turns out to be all you need, the Score will say so, and it will have cost you nothing to find out.</p>
+                        <p>What a chat window does not do is sit inside your systems and finish a job unattended: read the inbox, match the invoice, update the record, escalate the exception, log what it did. That is the work we build.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>We&rsquo;re a 30-person business. Aren&rsquo;t we too small for this?</summary>
+                    <div class="faq-answer">
+                        <p>Small is the point. Below roughly 200 people you rarely have anyone whose actual job is AI, and hiring one costs more than most of the work is worth.</p>
+                        <p>The first step is sized accordingly: one working session, written back within five working days. If the numbers don&rsquo;t justify a build, the report says so.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Where does our data go, and is it used to train models?</summary>
+                    <div class="faq-answer">
+                        <p>Every third party we would put in the path is named on our <a href="sub-processors/">sub-processors page</a> before you sign anything &mdash; not disclosed afterwards.</p>
+                        <p>We build for UK/EU data residency, and the training, retention and deletion position is written into the Blueprint and the Data Processing Agreement before any of your data moves. Our standing commitment to return or delete customer data within 30 days of an engagement ending is in the <a href="privacy/">privacy policy</a>.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What if what you build doesn&rsquo;t work?</summary>
+                    <div class="faq-answer">
+                        <p>That gets settled in the Blueprint, before the build. The Blueprint states what gets built, in what order, and what &ldquo;working&rdquo; means in numbers you agree up front.</p>
+                        <p>The &pound;3,000 is fixed, and the plan is yours whether you build it with us, in-house, or not at all. On the retainer there is a 30-day cancel notice and no annual lock-in.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Does this lock us into you?</summary>
+                    <div class="faq-answer">
+                        <p>No annual contract, and 30 days&rsquo; notice on the retainer. The Blueprint is a document you own &mdash; you can hand it to any other supplier and have them quote against it.</p>
+                        <p>Where we can, we build in your stack, on your accounts, so what we built stays with you if we part ways.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>You have no published client work. Why would we go first?</summary>
+                    <div class="faq-answer">
+                        <p>Correct, and we would rather say it than dress it up. QuietStaff is early. The scenarios on this site are illustrative and labelled as such, and the engineering log is the founder&rsquo;s own work, not client engagements.</p>
+                        <p>What we offer instead of a reference list: a first step that is free, a second step that is a fixed &pound;3,000 and yours to take elsewhere, and a named architect doing the work rather than a delivery team you never meet.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section (v3) -->
     <section class="cta-section" id="cta">
         <div class="container">
             <h2>Ready to find out what AI can do for your business?</h2>
-            <p class="cta-sub">Start with your QuietStaff AI Score. Fixed-fee. Fixed-scope. Ninety-day roadmap. No internal AI team required.</p>
+            <p class="cta-sub">Start with the free AI Score. One working session, written back within five working days. No cost, no obligation, and the report is yours either way.</p>
             <div class="cta-buttons">
-                <a href="#cta" onclick="openContactModal('score'); return false;" class="btn btn-primary" style="text-decoration:none;">Get Your QuietStaff AI Score &rarr;</a>
-                <a href="#cta" onclick="openContactModal('call'); return false;" class="btn btn-outline" style="text-decoration:none;">Schedule a Call &rarr;</a>
+                <a href="#cta" onclick="openContactModal('score'); return false;" class="btn btn-primary" style="text-decoration:none;">Get your free AI Score &rarr;</a>
             </div>
         </div>
     </section>
