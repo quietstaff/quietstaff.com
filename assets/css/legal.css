@@ -1,0 +1,204 @@
+/* legal.css
+ * Rules identical across /privacy/ and /sub-processors/.
+ * Extracted from the per-page inline <style> blocks — edit here, not in the pages.
+ * Loaded before each page's remaining inline CSS, so page-level rules still win.
+ */
+
+html { scroll-behavior: smooth; }
+
+.legal-header {
+            position: sticky;
+            top: 0;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-card);
+            padding: 1rem 0;
+            z-index: 100;
+        }
+
+.legal-header-inner {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+.legal-home-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+.legal-home-link:hover { color: var(--accent-primary); }
+
+.theme-toggle svg { width: 18px; height: 18px; }
+
+.theme-toggle .icon-sun { display: none; }
+
+.theme-toggle .icon-moon { display: block; }
+
+main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 6rem;
+        }
+
+h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+.doc-meta {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            padding: 0;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+        }
+
+.doc-meta strong { color: var(--text-muted); font-weight: 400; }
+
+.version-note {
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-bottom: 3rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--accent-primary);
+        }
+
+h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+h2:first-of-type { margin-top: 2rem; }
+
+h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-top: 1.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+p { margin-bottom: 1.25rem; color: var(--text-secondary); }
+
+p:last-child { margin-bottom: 0; }
+
+strong { color: var(--text-primary); font-weight: 600; }
+
+a {
+            color: var(--accent-primary);
+            text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 3px;
+            transition: color 0.2s ease;
+        }
+
+a:hover { color: var(--accent-secondary); }
+
+ul, ol {
+            margin: 0 0 1.25rem 1.5rem;
+            color: var(--text-secondary);
+        }
+
+li { margin-bottom: 0.5rem; }
+
+code {
+            background: var(--code-bg);
+            color: var(--accent-primary);
+            padding: 0.15em 0.4em;
+            border-radius: 0.25rem;
+            font-family: ui-monospace, 'JetBrains Mono', SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 0.9em;
+        }
+
+hr {
+            border: none;
+            height: 1px;
+            background: var(--border-card);
+            margin: 2.5rem 0;
+        }
+
+table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+th, td {
+            text-align: left;
+            padding: 0.875rem 1rem;
+            border-bottom: 1px solid var(--border-card);
+            color: var(--text-secondary);
+            vertical-align: top;
+        }
+
+th {
+            background: rgba(99, 102, 241, 0.08);
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+tr:last-child td { border-bottom: none; }
+
+tr:nth-child(even) td { background: var(--table-row-alt); }
+
+blockquote {
+            border-left: 3px solid var(--accent-primary);
+            padding: 0.75rem 1.25rem;
+            margin: 1.5rem 0;
+            color: var(--text-secondary);
+            font-style: italic;
+            background: var(--bg-card);
+            border-radius: 0 0.5rem 0.5rem 0;
+        }
+
+.doc-footer-note {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-card);
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+.footer-inner {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+.footer-links { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+
+.footer-links a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s ease; }
+
+.footer-links a:hover { color: var(--accent-primary); }
+
+.footer-meta { color: var(--text-muted); font-size: 0.85rem; }
