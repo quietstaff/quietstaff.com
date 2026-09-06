@@ -76,7 +76,7 @@ footer { background: var(--bg-secondary); border-top: 1px solid var(--border-car
 
 <div class="doc-meta">
     <strong>Effective date:</strong> 23 May 2026<br>
-    <strong>Document version:</strong> v1.1<br>
+    <strong>Document version:</strong> v1.2<br>
     <strong>Maintained by:</strong> <a href="mailto:privacy@quietstaff.com">privacy@quietstaff.com</a><br>
     <strong>Change-notification list:</strong> to request inclusion on the sub-processor change-notification list, email <a href="mailto:privacy@quietstaff.com">privacy@quietstaff.com</a>
 </div>
@@ -93,6 +93,7 @@ footer { background: var(--bg-secondary); border-top: 1px solid var(--border-car
 
 <h2>Current Sub-processors</h2>
 
+<div class="table-scroll">
 <table>
     <thead>
         <tr><th>#</th><th>Sub-processor</th><th>Purpose</th><th>Region</th><th>Transfer mechanism</th></tr>
@@ -112,8 +113,16 @@ footer { background: var(--bg-secondary); border-top: 1px solid var(--border-car
             <td>EU multi-region with global routing</td>
             <td>EU Standard Contractual Clauses + UK International Data Transfer Addendum (per Google's standard DPA)</td>
         </tr>
+        <tr>
+            <td>3</td>
+            <td><strong>Cloudflare, Inc.</strong></td>
+            <td>Website enquiry delivery &mdash; contact-form requests are handled by a Cloudflare Worker and forwarded by Cloudflare Email Routing to our mailbox</td>
+            <td>EU/UK edge; US-headquartered</td>
+            <td>EU Standard Contractual Clauses + UK International Data Transfer Addendum (per Cloudflare's standard DPA)</td>
+        </tr>
     </tbody>
 </table>
+</div>
 
 <hr>
 
@@ -123,7 +132,7 @@ footer { background: var(--bg-secondary); border-top: 1px solid var(--border-car
 
 <ul>
     <li><strong>Anthropic, PBC (direct API)</strong> &mdash; listed in v1.0 (1 May 2026) and removed in v1.1. Customer-instructed access to Claude models is delivered via <strong>AWS Bedrock</strong> (in the AWS sub-processor entry above) rather than the Anthropic direct API. Bedrock cross-region inference is disabled by default; live Customer Personal Data is processed only in dedicated client AWS accounts in eu-west-2 (London). The Anthropic direct API will only be re-introduced as a Sub-processor if and when a specific Customer engagement requires it, with prior notice under the change-notification process below.</li>
-    <li><strong>Pipedrive (Pipedrive Inc.)</strong> &mdash; CRM / sales pipeline management &mdash; engagement pending JD posting + first agent hire (currently expected Q3 2026). EU/Frankfurt region intended.</li>
+    <li><strong>Pipedrive (Pipedrive Inc.)</strong> &mdash; CRM / sales pipeline management &mdash; engagement pending JD posting + first agent hire (currently expected Q4 2026). EU/Frankfurt region intended.</li>
 </ul>
 
 <hr>

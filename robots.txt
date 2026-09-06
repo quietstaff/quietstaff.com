@@ -2,8 +2,4 @@
 User-agent: *
 Allow: /
 
-# Internal strategy document, unpublished 2026-09-04. Kept here so crawlers
-# that still hold it in cache stop re-requesting it.
-Disallow: /docs/
-
 Sitemap: https://quietstaff.co.uk/sitemap.xml

@@ -135,6 +135,11 @@ hr {
             margin: 2.5rem 0;
         }
 
+.table-scroll {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
 table {
             width: 100%;
             border-collapse: collapse;
@@ -143,7 +148,6 @@ table {
             background: var(--bg-card);
             border: 1px solid var(--border-card);
             border-radius: 0.5rem;
-            overflow: hidden;
         }
 
 th, td {
